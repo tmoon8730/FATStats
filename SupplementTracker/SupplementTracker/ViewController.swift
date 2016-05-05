@@ -9,29 +9,40 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource{
+class ViewController: UIViewController, UITableViewDataSource, TableViewCellDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     var supplements = [NSManagedObject]()
     
-    
+    var txtField1: UITextField!
+    var txtField2: UITextField!
     @IBAction func addName(sender: AnyObject) {
-        let alert = UIAlertController(title: "New Name", message: "Add a new name", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "New Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(addTextField1)
+        alert.addTextFieldWithConfigurationHandler(addTextField2)
+        
         let saveAction = UIAlertAction(title: "Save",
             style: .Default,
             handler: { (action:UIAlertAction) -> Void in
             
-            let textField = alert.textFields!.first
-            self.saveName(textField!.text!,day: "MWF")
+            //let textField = alert.textFields!.first
+            self.saveName(self.txtField1.text!,day: self.txtField2.text!)
             self.tableView.reloadData()
         })
     
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {(action: UIAlertAction) -> Void in}
-        alert.addTextFieldWithConfigurationHandler{(textField: UITextField) -> Void in}
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
     
         presentViewController(alert, animated:true, completion:nil)
+    }
+    func addTextField1(textField: UITextField!){
+        textField.placeholder = "Enter Supplement Name"
+        txtField1 = textField
+    }
+    func addTextField2(textField: UITextField!){
+        textField.placeholder = "Enter Days to be taken (Mon Tue Wed Thur Fri Sat Sun)"
+        txtField2 = textField
     }
     func saveName(name: String, day: String){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -56,7 +67,10 @@ class ViewController: UIViewController, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\"The List\""
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.separatorStyle = .None
+        tableView.rowHeight = 50.0
+        tableView.backgroundColor = UIColor.blackColor()
     }
     override func viewWillAppear(animated: Bool){
         super.viewWillAppear(animated)
@@ -65,7 +79,8 @@ class ViewController: UIViewController, UITableViewDataSource{
         let managedContext = appDelegate.managedObjectContext
         
         let fetchRequest = NSFetchRequest(entityName: "Supplement")
-        
+        let predicate = NSPredicate(format:"day == %@","Thur")
+        fetchRequest.predicate = predicate
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
             supplements = results as! [NSManagedObject]
@@ -73,24 +88,73 @@ class ViewController: UIViewController, UITableViewDataSource{
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-    
-    
+    func supplementItemDeleted(supplementItem: NSManagedObject){
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        let index = (supplements).indexOf(supplementItem)
+        if index == NSNotFound { return }
+        
+        let objectRemoved:NSManagedObject! = supplements.removeAtIndex(index!)
+        
+        let predicate = NSPredicate(format: "name == %@", argumentArray: [objectRemoved.valueForKey("name")!])
+        
+        let fetchRequest = NSFetchRequest(entityName: "Supplement")
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchedEntities = try managedContext.executeFetchRequest(fetchRequest)
+            if let entitiyToDelete = fetchedEntities.first{
+                managedContext.deleteObject(entitiyToDelete as! NSManagedObject)
+            }
+        } catch let error as NSError{
+            print("Delete Error \(error), \(error.userInfo)")
+        }
+        
+        
+        do {
+            try managedContext.save()
+        }catch let error as NSError{
+            print("Save Error \(error), \(error.userInfo)")
+        }
+        
+        tableView.beginUpdates()
+        let indexPathForRow = NSIndexPath(forRow: index!, inSection: 0)
+        tableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
+        tableView.endUpdates()
+    }
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return supplements.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
         
         let supplement = supplements[indexPath.row]
         
         let n = supplement.valueForKey("name") as! String
         let d = supplement.valueForKey("day") as! String
+        
+        if(d == "Thur"){
         let labelText:String = ("\(n) , \(d)")
         cell!.textLabel!.text = labelText
+        }
         
+        
+        cell?.backgroundColor = colorForIndex(indexPath.row)
+        cell?.selectionStyle = .None
+        
+        cell.delegate = self
+        cell.supplementItem = supplement
         return cell!
     }
-
+    func colorForIndex(index: Int) -> UIColor{
+        let itemCount = supplements.count - 1
+        let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
+        return UIColor(red:1.0, green:val, blue:0.0, alpha:0.9)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
