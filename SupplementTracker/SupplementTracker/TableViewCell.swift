@@ -19,11 +19,25 @@ protocol TableViewCellDelegate{
 class TableViewCell: UITableViewCell {
     let gradientLayer = CAGradientLayer()
     var originalCenter = CGPoint()
-    var deleteOnDragRelease = false
-    var completeOnDragRelease = false
-    var itemCompleteLayer = CALayer()
+    var deleteOnDragRelease = false, completeOnDragRelease = false
     var delegate: TableViewCellDelegate?
-    var supplementItem: NSManagedObject?
+    var supplementItem: NSManagedObject? {
+        didSet{
+            let n = supplementItem!.valueForKey("name") as! String
+            let d = supplementItem!.valueForKey("day") as! String
+            label.strikeThrough = supplementItem!.valueForKey("completed") as! Bool
+            print("didSet label.strikeThrough \(label.strikeThrough)")
+            let labelText:String = ("\(n) , \(d)")
+            label.text = labelText
+            label.strikeThrough = false
+            itemCompleteLayer.hidden = true
+        }
+    }
+    let label: StrikeThroughText
+    var itemCompleteLayer = CALayer()
+    
+
+    
     
     required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -31,8 +45,14 @@ class TableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
+        label = StrikeThroughText(frame:CGRect.null)
+        label.textColor = UIColor.whiteColor()
+        label.font = UIFont.boldSystemFontOfSize(16)
+        label.backgroundColor = UIColor.clearColor()
+        
         super.init(style:style, reuseIdentifier: reuseIdentifier)
         
+        addSubview(label)
         selectionStyle = .None
         
         gradientLayer.frame = bounds
@@ -46,7 +66,8 @@ class TableViewCell: UITableViewCell {
         
         
         itemCompleteLayer = CALayer(layer:layer)
-        itemCompleteLayer.backgroundColor = UIColor(red:0.0, green:0.6, blue:0.0, alpha: 0.3).CGColor
+        itemCompleteLayer.backgroundColor = UIColor(red:0.0, green:0.6, blue:0.0, alpha: 0.9).CGColor
+        print("itemCompleteLayer.hidden \(itemCompleteLayer.hidden)")
         itemCompleteLayer.hidden = true
         layer.insertSublayer(itemCompleteLayer, atIndex: 0)
         
@@ -60,6 +81,8 @@ class TableViewCell: UITableViewCell {
     override func layoutSubviews(){
         super.layoutSubviews()
         gradientLayer.frame = bounds
+        itemCompleteLayer.frame = bounds
+        label.frame = CGRect(x: kLabelLeftMargin, y:0, width:bounds.size.width - kLabelLeftMargin, height: bounds.size.height)
     }
     
     
@@ -71,7 +94,7 @@ class TableViewCell: UITableViewCell {
             let translation = recognizer.translationInView(self)
             center = CGPointMake(originalCenter.x + translation.x, originalCenter.y)
             deleteOnDragRelease = frame.origin.x < -frame.size.width / 2.0
-            completeOnDragRelease = frame.origin.x > -frame.size.width / 2.0
+            completeOnDragRelease = frame.origin.x > frame.size.width / 2.0
         }
         
         if recognizer.state == .Ended {
@@ -80,8 +103,13 @@ class TableViewCell: UITableViewCell {
                 if delegate != nil && supplementItem != nil {
                     delegate!.supplementItemDeleted(supplementItem!)
                 }
-            } else if completeOnDragRelease {
+            } else if (completeOnDragRelease == true){
+                if supplementItem != nil{
+                    supplementItem?.setValue(true, forKey: "completed")
+                }
+                label.strikeThrough = true
                 itemCompleteLayer.hidden = false
+                print("Setting completeItem")
                 UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
             } else {
                 UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})

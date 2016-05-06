@@ -54,6 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         
         supplement.setValue(name,forKey:"name")
         supplement.setValue(day,forKey:"day")
+        supplement.setValue(false,forKey:"completed")
         
         do {
             try managedContext.save()
@@ -134,15 +135,13 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         
         let supplement = supplements[indexPath.row]
         
-        let n = supplement.valueForKey("name") as! String
+       /* let n = supplement.valueForKey("name") as! String
         let d = supplement.valueForKey("day") as! String
         
-        if(d == "Thur"){
         let labelText:String = ("\(n) , \(d)")
-        cell!.textLabel!.text = labelText
-        }
+        cell!.textLabel!.text = labelText*/
         
-        
+
         cell?.backgroundColor = colorForIndex(indexPath.row)
         cell?.selectionStyle = .None
         
