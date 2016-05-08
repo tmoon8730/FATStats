@@ -1,16 +1,17 @@
 //
-//  ViewController.swift
+//  SupplementViewController.swift
 //  SupplementTracker
 //
-//  Created by Tyler Moon on 5/5/16.
+//  Created by Tyler Moon on 5/7/16.
 //  Copyright © 2016 Tyler Moon. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, TableViewCellDelegate{
-
+class SupplementViewController: UIViewController, UITableViewDataSource, TableViewCellDelegate{
+    
     @IBOutlet weak var tableView: UITableView!
     var supplements = [NSManagedObject]()
     
@@ -22,18 +23,18 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         alert.addTextFieldWithConfigurationHandler(addTextField2)
         
         let saveAction = UIAlertAction(title: "Save",
-            style: .Default,
-            handler: { (action:UIAlertAction) -> Void in
-            
-            //let textField = alert.textFields!.first
-            self.saveName(self.txtField1.text!,day: self.txtField2.text!)
-            self.tableView.reloadData()
+                                       style: .Default,
+                                       handler: { (action:UIAlertAction) -> Void in
+                                        
+                                        //let textField = alert.textFields!.first
+                                        self.saveName(self.txtField1.text!,day: self.txtField2.text!)
+                                        self.tableView.reloadData()
         })
-    
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {(action: UIAlertAction) -> Void in}
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
-    
+        
         presentViewController(alert, animated:true, completion:nil)
     }
     func addTextField1(textField: UITextField!){
@@ -60,7 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
             try managedContext.save()
             supplements.append(supplement)
         } catch let error as NSError{
-           print("Coule not save \(error), \(error.userInfo)")
+            print("Coule not save \(error), \(error.userInfo)")
         }
         
         print("name = \(day) and getCurrentDay = \(getCurrentDay())")
@@ -70,10 +71,10 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
             supplements.removeAtIndex(index!)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "\"The List\""
+        title = "Supplements"
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
@@ -143,13 +144,13 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         
         let supplement = supplements[indexPath.row]
         
-       /* let n = supplement.valueForKey("name") as! String
-        let d = supplement.valueForKey("day") as! String
+        /* let n = supplement.valueForKey("name") as! String
+         let d = supplement.valueForKey("day") as! String
+         
+         let labelText:String = ("\(n) , \(d)")
+         cell!.textLabel!.text = labelText*/
         
-        let labelText:String = ("\(n) , \(d)")
-        cell!.textLabel!.text = labelText*/
         
-
         cell?.backgroundColor = colorForIndex(indexPath.row)
         cell?.selectionStyle = .None
         
@@ -166,34 +167,26 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func awakeFromNib(){
+        super.awakeFromNib()
+        
+        self.title = "Supplements"
+    }
     
     func getCurrentDay() -> String {
         var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
         
         switch NSDate().dayOfWeek()!
         {
-            case 1: return weekdayList[0];
-            case 2: return weekdayList[1];
-            case 3: return weekdayList[2];
-            case 4: return weekdayList[3];
-            case 5: return weekdayList[4];
-            case 6: return weekdayList[5];
-            case 7: return weekdayList[6];
-            default: return ""
+        case 1: return weekdayList[0];
+        case 2: return weekdayList[1];
+        case 3: return weekdayList[2];
+        case 4: return weekdayList[3];
+        case 5: return weekdayList[4];
+        case 6: return weekdayList[5];
+        case 7: return weekdayList[6];
+        default: return ""
         }
     }
 }
-/*extension NSDate{
-    func dayOfWeek() ->Int? {
-        if
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = cal.components(.Weekday, fromDate:self){
-                    return comp.weekday
-        } else{
-            return nil
-        }
-    }
-}*/
-
 

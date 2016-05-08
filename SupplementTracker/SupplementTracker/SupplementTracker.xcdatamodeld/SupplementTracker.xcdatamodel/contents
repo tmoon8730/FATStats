@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15D21" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Exercise" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Supplement" syncable="YES">
         <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,5 +12,6 @@
     </entity>
     <elements>
         <element name="Supplement" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Exercise" positionX="-63" positionY="9" width="128" height="90"/>
     </elements>
 </model>
