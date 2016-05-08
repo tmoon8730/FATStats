@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         txtField1 = textField
     }
     func addTextField2(textField: UITextField!){
-        textField.placeholder = "Enter Days to be taken (Mon Tue Wed Thur Fri Sat Sun)"
+        textField.placeholder = "Enter Days to be taken (Mon, Tue, Wed, Thur, Fri, Sat, Sun)"
         txtField2 = textField
     }
     func saveName(name: String, day: String){
@@ -63,6 +63,12 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
            print("Coule not save \(error), \(error.userInfo)")
         }
         
+        print("name = \(day) and getCurrentDay = \(getCurrentDay())")
+        if(day != getCurrentDay())
+        {
+            let index = supplements.indexOf(supplement)
+            supplements.removeAtIndex(index!)
+        }
     }
 
     override func viewDidLoad() {
@@ -72,6 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
         tableView.backgroundColor = UIColor.blackColor()
+        
     }
     override func viewWillAppear(animated: Bool){
         super.viewWillAppear(animated)
@@ -80,7 +87,8 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         let managedContext = appDelegate.managedObjectContext
         
         let fetchRequest = NSFetchRequest(entityName: "Supplement")
-        let predicate = NSPredicate(format:"day == %@","Thur")
+        let predicate = NSPredicate(format:"day == %@",getCurrentDay())
+        print(getCurrentDay())
         fetchRequest.predicate = predicate
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
@@ -158,7 +166,34 @@ class ViewController: UIViewController, UITableViewDataSource, TableViewCellDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
+    func getCurrentDay() -> String {
+        var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
+        
+        switch NSDate().dayOfWeek()!
+        {
+            case 1: return weekdayList[0];
+            case 2: return weekdayList[1];
+            case 3: return weekdayList[2];
+            case 4: return weekdayList[3];
+            case 5: return weekdayList[4];
+            case 6: return weekdayList[5];
+            case 7: return weekdayList[6];
+            default: return ""
+        }
+    }
 }
+extension NSDate{
+    func dayOfWeek() ->Int? {
+        if
+            let cal: NSCalendar = NSCalendar.currentCalendar(),
+            let comp: NSDateComponents = cal.components(.Weekday, fromDate:self){
+                    return comp.weekday
+        } else{
+            return nil
+        }
+    }
+}
+
 
