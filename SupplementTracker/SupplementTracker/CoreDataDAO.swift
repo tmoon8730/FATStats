@@ -14,11 +14,12 @@ class CoreDataDAO {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     
-    internal func saveData(managedContext: NSManagedObjectContext, entityName: String,name: String, day: String, completed: Bool) -> NSManagedObject {
+    internal func saveData(managedContext: NSManagedObjectContext, entityName: String,name: String, day: String, notes: String, completed: Bool) -> NSManagedObject {
         let entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedContext)
         let managedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
         managedObject.setValue(name,forKey:"name")
         managedObject.setValue(day,forKey:"day")
+        managedObject.setValue(notes,forKey: "notes")
         managedObject.setValue(completed,forKey:"completed")
         do{
             try managedContext.save()
