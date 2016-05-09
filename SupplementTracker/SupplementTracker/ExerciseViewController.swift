@@ -52,7 +52,7 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, TableView
     
     func saveName(name: String, day: String){
         let managedContext = appDelegate.managedObjectContext
-        let exercise = DAO.saveData(managedContext, entityName: "Exercise", name: name, day: day, completed: false)
+        let exercise = DAO.saveData(managedContext, entityName: "Exercise", name: name, day: day, notes: " ", completed: false)
         exerciseArray.append(exercise)
         if(day != getCurrentDay())
         {

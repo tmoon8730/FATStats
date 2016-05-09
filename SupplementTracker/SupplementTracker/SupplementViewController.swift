@@ -55,7 +55,7 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
     
     func saveName(name: String, day: String){
         let managedContext = appDelegate.managedObjectContext
-        let supplement = DAO.saveData(managedContext,entityName: "Supplement",name: name,day: day,completed: false)
+        let supplement = DAO.saveData(managedContext,entityName: "Supplement",name: name,day: day,notes: " ",completed: false)
         supplementsArray.append(supplement)
         if(day != getCurrentDay())
         {
