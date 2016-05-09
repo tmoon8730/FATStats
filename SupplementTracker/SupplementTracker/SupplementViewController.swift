@@ -13,10 +13,13 @@ import CoreData
 class SupplementViewController: UIViewController, UITableViewDataSource, TableViewCellDelegate{
     
     @IBOutlet weak var tableView: UITableView!
-    var supplements = [NSManagedObject]()
-    
+    var supplementsArray = [NSManagedObject]()
+    let DAO = CoreDataDAO()
     var txtField1: UITextField!
     var txtField2: UITextField!
+    
+    
+    
     @IBAction func addName(sender: AnyObject) {
         let alert = UIAlertController(title: "New Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(addTextField1)
@@ -37,6 +40,10 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         
         presentViewController(alert, animated:true, completion:nil)
     }
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    
     func addTextField1(textField: UITextField!){
         textField.placeholder = "Enter Supplement Name"
         txtField1 = textField
@@ -45,33 +52,45 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         textField.placeholder = "Enter Days to be taken (Mon, Tue, Wed, Thur, Fri, Sat, Sun)"
         txtField2 = textField
     }
+    
     func saveName(name: String, day: String){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        
-        let entity = NSEntityDescription.entityForName("Supplement",inManagedObjectContext:managedContext)
-        
-        let supplement = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        supplement.setValue(name,forKey:"name")
-        supplement.setValue(day,forKey:"day")
-        supplement.setValue(false,forKey:"completed")
-        
-        do {
-            try managedContext.save()
-            supplements.append(supplement)
-        } catch let error as NSError{
-            print("Coule not save \(error), \(error.userInfo)")
-        }
-        
-        print("name = \(day) and getCurrentDay = \(getCurrentDay())")
+        let supplement = DAO.saveData(managedContext,entityName: "Supplement",name: name,day: day,completed: false)
+        supplementsArray.append(supplement)
         if(day != getCurrentDay())
         {
-            let index = supplements.indexOf(supplement)
-            supplements.removeAtIndex(index!)
+            let index = supplementsArray.indexOf(supplement)
+            supplementsArray.removeAtIndex(index!)
         }
     }
+    func supplementItemDeleted(supplementItem: NSManagedObject){
+        let managedContext = appDelegate.managedObjectContext
+        let index = (supplementsArray).indexOf(supplementItem)
+        if index == NSNotFound { return }
+        let objectRemoved:NSManagedObject! = supplementsArray.removeAtIndex(index!)
+        DAO.deleteData(managedContext, entitiyName: "Supplement", deleteItem: objectRemoved)
+        tableView.beginUpdates()
+        let indexPathForRow = NSIndexPath(forRow: index!, inSection: 0)
+        tableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
+        tableView.endUpdates()
+    }
     
+    func getCurrentDay() -> String {
+        var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
+        
+        switch NSDate().dayOfWeek()!
+        {
+        case 1: return weekdayList[0];
+        case 2: return weekdayList[1];
+        case 3: return weekdayList[2];
+        case 4: return weekdayList[3];
+        case 5: return weekdayList[4];
+        case 6: return weekdayList[5];
+        case 7: return weekdayList[6];
+        default: return ""
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Supplements"
@@ -93,56 +112,22 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         fetchRequest.predicate = predicate
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            supplements = results as! [NSManagedObject]
+            supplementsArray = results as! [NSManagedObject]
         } catch let error as NSError{
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-    func supplementItemDeleted(supplementItem: NSManagedObject){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        
-        let index = (supplements).indexOf(supplementItem)
-        if index == NSNotFound { return }
-        
-        let objectRemoved:NSManagedObject! = supplements.removeAtIndex(index!)
-        
-        let predicate = NSPredicate(format: "name == %@", argumentArray: [objectRemoved.valueForKey("name")!])
-        
-        let fetchRequest = NSFetchRequest(entityName: "Supplement")
-        fetchRequest.predicate = predicate
-        
-        do {
-            let fetchedEntities = try managedContext.executeFetchRequest(fetchRequest)
-            if let entitiyToDelete = fetchedEntities.first{
-                managedContext.deleteObject(entitiyToDelete as! NSManagedObject)
-            }
-        } catch let error as NSError{
-            print("Delete Error \(error), \(error.userInfo)")
-        }
-        
-        
-        do {
-            try managedContext.save()
-        }catch let error as NSError{
-            print("Save Error \(error), \(error.userInfo)")
-        }
-        
-        tableView.beginUpdates()
-        let indexPathForRow = NSIndexPath(forRow: index!, inSection: 0)
-        tableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
-        tableView.endUpdates()
-    }
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return supplements.count
+        return supplementsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
         
-        let supplement = supplements[indexPath.row]
+        let supplement = supplementsArray[indexPath.row]
         
         /* let n = supplement.valueForKey("name") as! String
          let d = supplement.valueForKey("day") as! String
@@ -159,7 +144,7 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         return cell!
     }
     func colorForIndex(index: Int) -> UIColor{
-        let itemCount = supplements.count - 1
+        let itemCount = supplementsArray.count - 1
         let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
         return UIColor(red:1.0, green:val, blue:0.0, alpha:0.9)
     }
@@ -173,20 +158,5 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         self.title = "Supplements"
     }
     
-    func getCurrentDay() -> String {
-        var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
-        
-        switch NSDate().dayOfWeek()!
-        {
-        case 1: return weekdayList[0];
-        case 2: return weekdayList[1];
-        case 3: return weekdayList[2];
-        case 4: return weekdayList[3];
-        case 5: return weekdayList[4];
-        case 6: return weekdayList[5];
-        case 7: return weekdayList[6];
-        default: return ""
-        }
-    }
 }
 
