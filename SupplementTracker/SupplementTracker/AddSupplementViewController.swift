@@ -20,6 +20,12 @@ class AddSupplementViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
     
+    var supplementName: String!
+    var supplementDay: String!
+    var supplementNotes: String!
+    var supplementCompleted: Bool = false
+    var editFlag: Bool = false
+    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     let DAO = CoreDataDAO()
@@ -33,6 +39,22 @@ class AddSupplementViewController: UIViewController {
         fridayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         saturdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         sundayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+    
+    
+        if(editFlag){
+            if(supplementDay.containsString("Mon")){mondayButton.selected = true}
+            if(supplementDay.containsString("Tue")){tuesdayButton.selected = true}
+            if(supplementDay.containsString("Wed")){wednesdayButton.selected = true}
+            if(supplementDay.containsString("Thur")){thursdayButton.selected = true}
+            if(supplementDay.containsString("Fri")){fridayButton.selected = true}
+            if(supplementDay.containsString("Sat")){saturdayButton.selected = true}
+            if(supplementDay.containsString("Sun")){sundayButton.selected = true}
+            
+            nameTextField.text! = supplementName
+            notesTextField.text! = supplementNotes
+        }
+
+    
     }
     func buttonClicked(sender:UIButton){
         sender.selected = !sender.selected
@@ -40,33 +62,19 @@ class AddSupplementViewController: UIViewController {
     @IBAction func saveSupplement(sender: AnyObject) {
         
         let managedContext = appDelegate.managedObjectContext
-        
-        let supplementName = nameTextField.text!
-        var day: String = ""
-        if(mondayButton.selected == true){
-            day = day + "Mon"
+        if(!editFlag){
+            supplementDay = ""
+            supplementName = nameTextField.text!
+            supplementNotes = notesTextField.text!
+            if(mondayButton.selected == true){supplementDay = supplementDay + "Mon"}
+            if(tuesdayButton.selected == true){supplementDay = supplementDay + "Tue"}
+            if(wednesdayButton.selected == true){supplementDay = supplementDay + "Wed"}
+            if(thursdayButton.selected == true){supplementDay = supplementDay + "Thur"}
+            if(fridayButton.selected == true){supplementDay = supplementDay + "Fri"}
+            if(saturdayButton.selected == true){supplementDay = supplementDay + "Sat"}
+            if(sundayButton.selected == true){supplementDay = supplementDay + "Sun"}
         }
-        if(tuesdayButton.selected == true){
-            day = day + "Tue"
-        }
-        if(wednesdayButton.selected == true){
-            day = day + "Wed"
-        }
-        if(thursdayButton.selected == true){
-            day = day + "Thur"
-        }
-        if(fridayButton.selected == true){
-            day = day + "Fri"
-        }
-        if(saturdayButton.selected == true){
-            day = day + "Sat"
-        }
-        if(sundayButton.selected == true){
-            day = day + "Sun"
-        }
-        let supplementNotes = notesTextField.text!
-        
-        DAO.saveData(managedContext, entityName: "Supplement", name: supplementName, day: day, notes: supplementNotes, completed: false)
+        DAO.saveData(managedContext, entityName: "Supplement", name: supplementName, day: supplementDay, notes: supplementNotes, completed: supplementCompleted)
         print("Saved the data")
     }
 }

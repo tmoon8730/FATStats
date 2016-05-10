@@ -154,7 +154,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Supplements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNe-ae-J3w">
-                                        <rect key="frame" x="197" y="17" width="206" height="31.5"/>
+                                        <rect key="frame" x="197" y="17" width="206" height="32"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -371,6 +371,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="VOH-3s-R9k"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PGJ-9y-2Xy"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -392,6 +393,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YjT-cT-PRs" id="Mss-kP-tl6"/>
+                        <segue destination="O44-Uf-kAS" kind="show" identifier="editSupplementSeque" id="8YZ-4g-0Jz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -460,4 +462,7 @@
             <point key="canvasLocation" x="1725" y="149"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8YZ-4g-0Jz"/>
+    </inferredMetricsTieBreakers>
 </document>

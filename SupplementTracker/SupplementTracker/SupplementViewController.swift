@@ -10,14 +10,15 @@ import Foundation
 import UIKit
 import CoreData
 
-class SupplementViewController: UIViewController, UITableViewDataSource, TableViewCellDelegate{
+class SupplementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate{
     
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var tableView: UITableView!
     var supplementsArray = [NSManagedObject]()
     let DAO = CoreDataDAO()
     var txtField1: UITextField!
     var txtField2: UITextField!
-    
+    var chosenCellIndex: Int = 0
     
     
     @IBAction func addName(sender: AnyObject) {
@@ -41,7 +42,7 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         presentViewController(alert, animated:true, completion:nil)
     }
     
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     
     
     func addTextField1(textField: UITextField!){
@@ -98,6 +99,7 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
         tableView.backgroundColor = UIColor.blackColor()
+
         
     }
     override func viewWillAppear(animated: Bool){
@@ -107,7 +109,7 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         let managedContext = appDelegate.managedObjectContext
         
         let fetchRequest = NSFetchRequest(entityName: "Supplement")
-        let predicate = NSPredicate(format:"day == %@",getCurrentDay())
+        let predicate = NSPredicate(format:"day contains[c] %@",getCurrentDay())
         print(getCurrentDay())
         fetchRequest.predicate = predicate
         do {
@@ -143,6 +145,29 @@ class SupplementViewController: UIViewController, UITableViewDataSource, TableVi
         cell.supplementItem = supplement
         return cell!
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        chosenCellIndex = indexPath.row
+        self.performSegueWithIdentifier("editSupplementSeque", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        print("In prepareForSegue")
+        
+        // get a reference to the second view controller
+        let secondViewController = segue.destinationViewController as! AddSupplementViewController
+        
+        // set a variable in the second view controller with the data to pass
+        
+        let supplement = supplementsArray[chosenCellIndex]
+        
+        secondViewController.supplementName = supplement.valueForKey("name") as! String
+        secondViewController.supplementDay = supplement.valueForKey("day") as! String
+        secondViewController.supplementNotes = supplement.valueForKey("notes") as! String
+        secondViewController.editFlag = true
+        
+    }
+    
     func colorForIndex(index: Int) -> UIColor{
         let itemCount = supplementsArray.count - 1
         let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
