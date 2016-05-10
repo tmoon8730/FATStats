@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class ExerciseViewController: UIViewController, UITableViewDataSource, TableViewCellDelegate{
+class ExerciseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +18,7 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, TableView
     let DAO = CoreDataDAO()
     var txtField1: UITextField!
     var txtField2: UITextField!
-    
+    var chosenCellIndex: Int = 0
     
     @IBAction func addName(sender: AnyObject) {
         let alert = UIAlertController(title: "New Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
@@ -103,7 +103,7 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, TableView
         let managedContext = appDelegate.managedObjectContext
         
         let fetchRequest = NSFetchRequest(entityName: "Exercise")
-        let predicate = NSPredicate(format:"day == %@",getCurrentDay())
+        let predicate = NSPredicate(format:"day contains[c] %@",getCurrentDay())
         print(getCurrentDay())
         fetchRequest.predicate = predicate
         do {
@@ -131,6 +131,30 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, TableView
         cell.supplementItem = supplement
         return cell!
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        print("in didSelectRowAtIndexPath")
+        chosenCellIndex = indexPath.row
+        self.performSegueWithIdentifier("editExerciseSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        print("In prepareForSegue")
+        
+        // get a reference to the second view controller
+        let secondViewController = segue.destinationViewController as! AddExerciseViewController
+        
+        // set a variable in the second view controller with the data to pass
+        
+        let supplement = exerciseArray[chosenCellIndex]
+        
+        secondViewController.exerciseName = supplement.valueForKey("name") as! String
+        secondViewController.exerciseDay = supplement.valueForKey("day") as! String
+        secondViewController.exerciseNotes = supplement.valueForKey("notes") as! String
+        secondViewController.editFlag = true
+        
+    }
+
     func colorForIndex(index: Int) -> UIColor{
         let itemCount = exerciseArray.count - 1
         let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
