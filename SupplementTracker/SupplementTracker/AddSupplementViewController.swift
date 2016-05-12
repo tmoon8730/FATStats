@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class AddSupplementViewController: UIViewController {
     
     @IBOutlet weak var mondayButton: UIButton!
@@ -33,6 +34,7 @@ class AddSupplementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mondayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         tuesdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         wednesdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         thursdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
