@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D03A7121CE3DDDE00241873 /* NotesTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03A7111CE3DDDE00241873 /* NotesTrackerViewController.swift */; };
 		7D04F7811CE10D3B00AB9E5B /* AddSupplementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D04F7801CE10D3B00AB9E5B /* AddSupplementViewController.swift */; };
 		7D1B2CAF1CDED8E50051227E /* SupplementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1B2CAE1CDED8E50051227E /* SupplementViewController.swift */; };
 		7D1B2CB11CDEDAFA0051227E /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1B2CB01CDEDAFA0051227E /* ExerciseViewController.swift */; };
+		7D2849F81CE3CA13000BA46D /* SelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2849F71CE3CA13000BA46D /* SelectButton.swift */; };
+		7D30FED21CE18EE300FEC4B4 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30FED11CE18EE300FEC4B4 /* AddExerciseViewController.swift */; };
+		7D30FED41CE23EDE00FEC4B4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30FED31CE23EDE00FEC4B4 /* TodayViewController.swift */; };
 		7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */; };
 		7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72C9901CDD010500859A75 /* StrikeThroughText.swift */; };
 		7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */; };
@@ -22,9 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D03A7111CE3DDDE00241873 /* NotesTrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTrackerViewController.swift; sourceTree = "<group>"; };
 		7D04F7801CE10D3B00AB9E5B /* AddSupplementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSupplementViewController.swift; sourceTree = "<group>"; };
 		7D1B2CAE1CDED8E50051227E /* SupplementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplementViewController.swift; sourceTree = "<group>"; };
 		7D1B2CB01CDEDAFA0051227E /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		7D2849F71CE3CA13000BA46D /* SelectButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectButton.swift; sourceTree = "<group>"; };
+		7D30FED11CE18EE300FEC4B4 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		7D30FED31CE23EDE00FEC4B4 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		7D72C9901CDD010500859A75 /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		7D9E40C01CDB9DD600FEE297 /* SupplementTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupplementTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +76,7 @@
 		7D9E40C21CDB9DD600FEE297 /* SupplementTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7D2849F71CE3CA13000BA46D /* SelectButton.swift */,
 				7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */,
 				7D9E40C51CDB9DD600FEE297 /* ViewController.swift */,
 				7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */,
@@ -77,10 +86,13 @@
 				7D72C9901CDD010500859A75 /* StrikeThroughText.swift */,
 				7D9E40C71CDB9DD600FEE297 /* Main.storyboard */,
 				7D04F7801CE10D3B00AB9E5B /* AddSupplementViewController.swift */,
+				7D30FED11CE18EE300FEC4B4 /* AddExerciseViewController.swift */,
 				7D9E40CD1CDB9DD600FEE297 /* Assets.xcassets */,
 				7D9E40CF1CDB9DD600FEE297 /* LaunchScreen.storyboard */,
 				7D9E40D21CDB9DD600FEE297 /* Info.plist */,
 				7D9E40CA1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld */,
+				7D30FED31CE23EDE00FEC4B4 /* TodayViewController.swift */,
+				7D03A7111CE3DDDE00241873 /* NotesTrackerViewController.swift */,
 			);
 			path = SupplementTracker;
 			sourceTree = "<group>";
@@ -159,13 +171,17 @@
 			files = (
 				7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */,
 				7D1B2CB11CDEDAFA0051227E /* ExerciseViewController.swift in Sources */,
+				7D30FED21CE18EE300FEC4B4 /* AddExerciseViewController.swift in Sources */,
 				7D04F7811CE10D3B00AB9E5B /* AddSupplementViewController.swift in Sources */,
 				7D9E40CC1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld in Sources */,
+				7D03A7121CE3DDDE00241873 /* NotesTrackerViewController.swift in Sources */,
 				7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */,
 				7D9E40D91CDBB8A500FEE297 /* TableViewCell.swift in Sources */,
 				7D9E40C61CDB9DD600FEE297 /* ViewController.swift in Sources */,
 				7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */,
+				7D2849F81CE3CA13000BA46D /* SelectButton.swift in Sources */,
 				7D1B2CAF1CDED8E50051227E /* SupplementViewController.swift in Sources */,
+				7D30FED41CE23EDE00FEC4B4 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
