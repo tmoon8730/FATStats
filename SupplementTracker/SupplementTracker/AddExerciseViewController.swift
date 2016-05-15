@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@IBDesignable
 class AddExerciseViewController: UIViewController{
     @IBOutlet weak var mondayButton: UIButton!
     @IBOutlet weak var tuesdayButton: UIButton!
@@ -18,6 +18,10 @@ class AddExerciseViewController: UIViewController{
     @IBOutlet weak var sundayButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
+    @IBOutlet weak var selectAllButton: UIButton!
+    
+    @IBInspectable var selectionColor: UIColor!
+    @IBInspectable var nonSelectionColor: UIColor!
     
     var exerciseName: String!
     var exerciseDay: String!
@@ -31,6 +35,9 @@ class AddExerciseViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+        
         mondayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         tuesdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         wednesdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -38,10 +45,20 @@ class AddExerciseViewController: UIViewController{
         fridayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         saturdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         sundayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        selectAllButton.addTarget(self, action: "selectAllButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        
+        mondayButton.backgroundColor = nonSelectionColor
+        tuesdayButton.backgroundColor = nonSelectionColor
+        wednesdayButton.backgroundColor = nonSelectionColor
+        thursdayButton.backgroundColor = nonSelectionColor
+        fridayButton.backgroundColor = nonSelectionColor
+        saturdayButton.backgroundColor = nonSelectionColor
+        sundayButton.backgroundColor = nonSelectionColor
+        selectAllButton.backgroundColor = nonSelectionColor
         
         if(editFlag){
-            if(exerciseDay.containsString("Mon")){mondayButton.selected = true}
+            if(exerciseDay.containsString("Mon")){mondayButton.selected = false}
             if(exerciseDay.containsString("Tue")){tuesdayButton.selected = true}
             if(exerciseDay.containsString("Wed")){wednesdayButton.selected = true}
             if(exerciseDay.containsString("Thur")){thursdayButton.selected = true}
@@ -56,8 +73,51 @@ class AddExerciseViewController: UIViewController{
         
     }
     func buttonClicked(sender:UIButton){
-        sender.selected = !sender.selected
+        
+       
+        print("In buttonClicked with \(sender.selected)")
+        var button: UIButton
+        if let b = sender as? UIButton{
+            button = b
+            if(button.selected == true){
+                button.backgroundColor = selectionColor
+                
+            }else{
+                button.backgroundColor = nonSelectionColor
+            }
+        }
+         sender.selected = !sender.selected
     }
+    func selectAllButtonClicked(sender: UIButton){
+        print("In selectAllButtonClicked")
+        if(sender.selected == false){
+            mondayButton.selected = false // These are false do too the flip on the buttonClicked function
+            tuesdayButton.selected = false
+            wednesdayButton.selected = false
+            thursdayButton.selected = false
+            fridayButton.selected = false
+            saturdayButton.selected = false
+            sundayButton.selected = false
+        }else{
+            mondayButton.selected = true
+            tuesdayButton.selected = true
+            wednesdayButton.selected = true
+            thursdayButton.selected = true
+            fridayButton.selected = true
+            saturdayButton.selected = true
+            sundayButton.selected = true
+        }
+        print("Monday button \(mondayButton.selected)")
+        buttonClicked(mondayButton)
+        buttonClicked(tuesdayButton)
+        buttonClicked(wednesdayButton)
+        buttonClicked(thursdayButton)
+        buttonClicked(fridayButton)
+        buttonClicked(saturdayButton)
+        buttonClicked(sundayButton)
+        buttonClicked(sender) // Sender is the select all button
+    }
+
     @IBAction func saveSupplement(sender: AnyObject) {
         
         let managedContext = appDelegate.managedObjectContext

@@ -93,8 +93,6 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
-        tableView.backgroundColor = UIColor.blackColor()
-        
     }
     override func viewWillAppear(animated: Bool){
         super.viewWillAppear(animated)
@@ -142,15 +140,15 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
         print("In prepareForSegue")
         
         // get a reference to the second view controller
-        let secondViewController = segue.destinationViewController as! AddExerciseViewController
+        let secondViewController = segue.destinationViewController as! AddViewController
         
         // set a variable in the second view controller with the data to pass
         
         let supplement = exerciseArray[chosenCellIndex]
         
-        secondViewController.exerciseName = supplement.valueForKey("name") as! String
-        secondViewController.exerciseDay = supplement.valueForKey("day") as! String
-        secondViewController.exerciseNotes = supplement.valueForKey("notes") as! String
+        secondViewController.addName = supplement.valueForKey("name") as! String
+        secondViewController.addDay = supplement.valueForKey("day") as! String
+        secondViewController.addNotes = supplement.valueForKey("notes") as! String
         secondViewController.editFlag = true
         
     }
@@ -172,15 +170,3 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
     
 }
 
-
-extension NSDate{
-    func dayOfWeek() ->Int? {
-        if
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = cal.components(.Weekday, fromDate:self){
-            return comp.weekday
-        } else{
-            return nil
-        }
-    }
-}

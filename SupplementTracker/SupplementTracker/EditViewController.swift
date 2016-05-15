@@ -1,25 +1,27 @@
 //
-//  SupplementViewController.swift
+//  EditViewController.swift
 //  SupplementTracker
 //
-//  Created by Tyler Moon on 5/7/16.
+//  Created by Tyler Moon on 5/14/16.
 //  Copyright © 2016 Tyler Moon. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreData
+import Foundation
 
-class SupplementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate{
-    
+class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var tableView: UITableView!
-    var supplementsArray = [NSManagedObject]()
+    var displayObjectsArray = [NSManagedObject]()
     let DAO = CoreDataDAO()
     var txtField1: UITextField!
     var txtField2: UITextField!
     var chosenCellIndex: Int = 0
     
+    
+    @IBInspectable var viewTitle: String?
+    @IBInspectable var entityToSave: String!
     
     @IBAction func addName(sender: AnyObject) {
         let alert = UIAlertController(title: "New Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
@@ -41,41 +43,37 @@ class SupplementViewController: UIViewController, UITableViewDataSource, UITable
         
         presentViewController(alert, animated:true, completion:nil)
     }
-    
-    
-    
-    
     func addTextField1(textField: UITextField!){
-        textField.placeholder = "Enter Supplement Name"
+        textField.placeholder = "Enter Exercise Name"
         txtField1 = textField
     }
     func addTextField2(textField: UITextField!){
-        textField.placeholder = "Enter Days to be taken (Mon, Tue, Wed, Thur, Fri, Sat, Sun)"
+        textField.placeholder = "Enter Days to be done (Mon, Tue, Wed, Thur, Fri, Sat, Sun)"
         txtField2 = textField
     }
     
+    
     func saveName(name: String, day: String){
         let managedContext = appDelegate.managedObjectContext
-        let supplement = DAO.saveData(managedContext,entityName: "Supplement",name: name,day: day,notes: " ",completed: false)
-        supplementsArray.append(supplement)
+        let exercise = DAO.saveData(managedContext, entityName: "Exercise", name: name, day: day, notes: " ", completed: false)
+        displayObjectsArray.append(exercise)
         if(day != getCurrentDay())
         {
-            let index = supplementsArray.indexOf(supplement)
-            supplementsArray.removeAtIndex(index!)
+            let index = displayObjectsArray.indexOf(exercise)
+            displayObjectsArray.removeAtIndex(index!)
         }
     }
     func supplementItemDeleted(supplementItem: NSManagedObject){
         let managedContext = appDelegate.managedObjectContext
-        let index = (supplementsArray).indexOf(supplementItem)
+        let index = (displayObjectsArray).indexOf(supplementItem)
         if index == NSNotFound { return }
-        let objectRemoved:NSManagedObject! = supplementsArray.removeAtIndex(index!)
-        DAO.deleteData(managedContext, entitiyName: "Supplement", deleteItem: objectRemoved)
+        let objectRemoved:NSManagedObject! = displayObjectsArray.removeAtIndex(index!)
+        DAO.deleteData(managedContext, entitiyName: "Exercise", deleteItem: objectRemoved)
         tableView.beginUpdates()
         let indexPathForRow = NSIndexPath(forRow: index!, inSection: 0)
         tableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
         tableView.endUpdates()
     }
-    
     func getCurrentDay() -> String {
         var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
         
@@ -91,10 +89,10 @@ class SupplementViewController: UIViewController, UITableViewDataSource, UITable
         default: return ""
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Supplements"
+        title = self.viewTitle
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
@@ -105,35 +103,27 @@ class SupplementViewController: UIViewController, UITableViewDataSource, UITable
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         
-        let fetchRequest = NSFetchRequest(entityName: "Supplement")
+        let fetchRequest = NSFetchRequest(entityName: entityToSave)
         let predicate = NSPredicate(format:"day contains[c] %@",getCurrentDay())
         print(getCurrentDay())
         fetchRequest.predicate = predicate
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            supplementsArray = results as! [NSManagedObject]
+            displayObjectsArray = results as! [NSManagedObject]
         } catch let error as NSError{
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return supplementsArray.count
+        return displayObjectsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
         
-        let supplement = supplementsArray[indexPath.row]
-        
-        /* let n = supplement.valueForKey("name") as! String
-         let d = supplement.valueForKey("day") as! String
-         
-         let labelText:String = ("\(n) , \(d)")
-         cell!.textLabel!.text = labelText*/
-        
+        let supplement = displayObjectsArray[indexPath.row]
         
         cell?.backgroundColor = colorForIndex(indexPath.row)
         cell?.selectionStyle = .None
@@ -144,19 +134,17 @@ class SupplementViewController: UIViewController, UITableViewDataSource, UITable
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         chosenCellIndex = indexPath.row
-        self.performSegueWithIdentifier("editSupplementSeque", sender: self)
+        self.performSegueWithIdentifier("editSegue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        print("In prepareForSegue")
         
         // get a reference to the second view controller
         let secondViewController = segue.destinationViewController as! AddViewController
         
         // set a variable in the second view controller with the data to pass
         
-        let supplement = supplementsArray[chosenCellIndex]
+        let supplement = displayObjectsArray[chosenCellIndex]
         
         secondViewController.addName = supplement.valueForKey("name") as! String
         secondViewController.addDay = supplement.valueForKey("day") as! String
@@ -166,7 +154,7 @@ class SupplementViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func colorForIndex(index: Int) -> UIColor{
-        let itemCount = supplementsArray.count - 1
+        let itemCount = displayObjectsArray.count - 1
         let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
         return UIColor(red:1.0, green:val, blue:0.0, alpha:0.9)
     }
@@ -177,8 +165,20 @@ class SupplementViewController: UIViewController, UITableViewDataSource, UITable
     override func awakeFromNib(){
         super.awakeFromNib()
         
-        self.title = "Supplements"
+        self.title = self.viewTitle
     }
     
 }
 
+
+extension NSDate{
+    func dayOfWeek() ->Int? {
+        if
+            let cal: NSCalendar = NSCalendar.currentCalendar(),
+            let comp: NSDateComponents = cal.components(.Weekday, fromDate:self){
+            return comp.weekday
+        } else{
+            return nil
+        }
+    }
+}

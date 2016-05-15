@@ -21,6 +21,9 @@ class AddSupplementViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
     
+    @IBInspectable var selectionColor: UIColor!
+    @IBInspectable var nonSelectionColor: UIColor!
+    
     var supplementName: String!
     var supplementDay: String!
     var supplementNotes: String!
@@ -33,15 +36,25 @@ class AddSupplementViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mondayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        self.hideKeyboardWhenTappedAround()
+        
+        mondayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         tuesdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         wednesdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         thursdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         fridayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         saturdayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        sundayButton.addTarget(self, action:"buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        sundayButton.addTarget(self, action:"selectAllButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
     
+        
+        mondayButton.backgroundColor = nonSelectionColor
+        tuesdayButton.backgroundColor = nonSelectionColor
+        wednesdayButton.backgroundColor = nonSelectionColor
+        thursdayButton.backgroundColor = nonSelectionColor
+        fridayButton.backgroundColor = nonSelectionColor
+        saturdayButton.backgroundColor = nonSelectionColor
+        sundayButton.backgroundColor = nonSelectionColor
     
         if(editFlag){
             if(supplementDay.containsString("Mon")){mondayButton.selected = true}
@@ -60,6 +73,34 @@ class AddSupplementViewController: UIViewController {
     }
     func buttonClicked(sender:UIButton){
         sender.selected = !sender.selected
+        var button: UIButton
+        if let b = sender as? UIButton{
+            button = b
+            if(button.selected == true){
+                button.backgroundColor = selectionColor
+            }else{
+                button.backgroundColor = nonSelectionColor
+            }
+        }
+
+    }
+    
+    func selectAllButtonClicked(sender: UIButton){
+        mondayButton.selected = true
+        tuesdayButton.selected = true
+        wednesdayButton.selected = true
+        thursdayButton.selected = true
+        fridayButton.selected = true
+        saturdayButton.selected = true
+        sundayButton.selected = true
+        buttonClicked(mondayButton)
+        buttonClicked(tuesdayButton)
+        buttonClicked(wednesdayButton)
+        buttonClicked(thursdayButton)
+        buttonClicked(fridayButton)
+        buttonClicked(saturdayButton)
+        buttonClicked(sundayButton)
+        buttonClicked(sender) // Sender is the select all button
     }
     @IBAction func saveSupplement(sender: AnyObject) {
         

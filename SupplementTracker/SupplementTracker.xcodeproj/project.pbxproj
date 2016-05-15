@@ -23,6 +23,8 @@
 		7D9E40CE1CDB9DD600FEE297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E40CD1CDB9DD600FEE297 /* Assets.xcassets */; };
 		7D9E40D11CDB9DD600FEE297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E40CF1CDB9DD600FEE297 /* LaunchScreen.storyboard */; };
 		7D9E40D91CDBB8A500FEE297 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40D81CDBB8A500FEE297 /* TableViewCell.swift */; };
+		7DBFA0BE1CE75FE90080EE88 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA0BD1CE75FE90080EE88 /* AddViewController.swift */; };
+		7DBFA0C01CE813C70080EE88 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA0BF1CE813C70080EE88 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		7D9E40D01CDB9DD600FEE297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D9E40D21CDB9DD600FEE297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D9E40D81CDBB8A500FEE297 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		7DBFA0BD1CE75FE90080EE88 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		7DBFA0BF1CE813C70080EE88 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				7D9E40C71CDB9DD600FEE297 /* Main.storyboard */,
 				7D04F7801CE10D3B00AB9E5B /* AddSupplementViewController.swift */,
 				7D30FED11CE18EE300FEC4B4 /* AddExerciseViewController.swift */,
+				7DBFA0BD1CE75FE90080EE88 /* AddViewController.swift */,
+				7DBFA0BF1CE813C70080EE88 /* EditViewController.swift */,
 				7D9E40CD1CDB9DD600FEE297 /* Assets.xcassets */,
 				7D9E40CF1CDB9DD600FEE297 /* LaunchScreen.storyboard */,
 				7D9E40D21CDB9DD600FEE297 /* Info.plist */,
@@ -171,8 +177,10 @@
 			files = (
 				7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */,
 				7D1B2CB11CDEDAFA0051227E /* ExerciseViewController.swift in Sources */,
+				7DBFA0BE1CE75FE90080EE88 /* AddViewController.swift in Sources */,
 				7D30FED21CE18EE300FEC4B4 /* AddExerciseViewController.swift in Sources */,
 				7D04F7811CE10D3B00AB9E5B /* AddSupplementViewController.swift in Sources */,
+				7DBFA0C01CE813C70080EE88 /* EditViewController.swift in Sources */,
 				7D9E40CC1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld in Sources */,
 				7D03A7121CE3DDDE00241873 /* NotesTrackerViewController.swift in Sources */,
 				7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */,
