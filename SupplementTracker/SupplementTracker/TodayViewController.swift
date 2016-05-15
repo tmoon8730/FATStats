@@ -28,27 +28,12 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         let managedContext = appDelegate.managedObjectContext
         
         // Load supplement data
-        let supplementFetchRequest = NSFetchRequest(entityName: "Supplement")
-        let supplementPredicate = NSPredicate(format:"day contains[c] %@",getCurrentDay())
-        supplementFetchRequest.predicate = supplementPredicate
-        do{
-            let results = try managedContext.executeFetchRequest(supplementFetchRequest)
-            supplementsArray = results as! [NSManagedObject]
-        }catch let error as NSError{
-            print("Error loading supplement data \(error)")
-        }
+        DAO.listCurrentDayData(managedContext, entityname: "Supplement")
         
         
         // Load exercise data
-        let exerciseFetchRequest = NSFetchRequest(entityName: "Exercise")
-        let exercisePredicate = NSPredicate(format:"day contains[c] %@",getCurrentDay())
-        exerciseFetchRequest.predicate = exercisePredicate
-        do{
-            let results = try managedContext.executeFetchRequest(exerciseFetchRequest)
-            exerciseArray = results as! [NSManagedObject]
-        }catch let error as NSError{
-            print("Error loading exercise data \(error)")
-        }
+        DAO.listCurrentDayData(managedContext, entityname: "Exercise")
+        
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -93,20 +78,4 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         let secondViewContoller = segue.destinationViewController as! NotesTrackerViewController
     }
-    func getCurrentDay() -> String {
-        var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
-        
-        switch NSDate().dayOfWeek()!
-        {
-        case 1: return weekdayList[0];
-        case 2: return weekdayList[1];
-        case 3: return weekdayList[2];
-        case 4: return weekdayList[3];
-        case 5: return weekdayList[4];
-        case 6: return weekdayList[5];
-        case 7: return weekdayList[6];
-        default: return ""
-        }
-    }
-
 }

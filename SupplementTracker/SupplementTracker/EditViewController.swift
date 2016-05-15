@@ -10,86 +10,20 @@ import UIKit
 import CoreData
 import Foundation
 
-class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var tableView: UITableView!
-    var displayObjectsArray = [NSManagedObject]()
+    
+    var displayObjectsArray = [NSManagedObject]() // Array to hold all the currently displayed data
     let DAO = CoreDataDAO()
-    var txtField1: UITextField!
-    var txtField2: UITextField!
     var chosenCellIndex: Int = 0
     
-    
+    // These variables are set in the Storyboard
     @IBInspectable var viewTitle: String?
     @IBInspectable var entityToSave: String!
     
-    @IBAction func addName(sender: AnyObject) {
-        let alert = UIAlertController(title: "New Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addTextFieldWithConfigurationHandler(addTextField1)
-        alert.addTextFieldWithConfigurationHandler(addTextField2)
         
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .Default,
-                                       handler: { (action:UIAlertAction) -> Void in
-                                        
-                                        //let textField = alert.textFields!.first
-                                        self.saveName(self.txtField1.text!,day: self.txtField2.text!)
-                                        self.tableView.reloadData()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {(action: UIAlertAction) -> Void in}
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        presentViewController(alert, animated:true, completion:nil)
-    }
-    func addTextField1(textField: UITextField!){
-        textField.placeholder = "Enter Exercise Name"
-        txtField1 = textField
-    }
-    func addTextField2(textField: UITextField!){
-        textField.placeholder = "Enter Days to be done (Mon, Tue, Wed, Thur, Fri, Sat, Sun)"
-        txtField2 = textField
-    }
-    
-    
-    func saveName(name: String, day: String){
-        let managedContext = appDelegate.managedObjectContext
-        let exercise = DAO.saveData(managedContext, entityName: "Exercise", name: name, day: day, notes: " ", completed: false)
-        displayObjectsArray.append(exercise)
-        if(day != getCurrentDay())
-        {
-            let index = displayObjectsArray.indexOf(exercise)
-            displayObjectsArray.removeAtIndex(index!)
-        }
-    }
-    func supplementItemDeleted(supplementItem: NSManagedObject){
-        let managedContext = appDelegate.managedObjectContext
-        let index = (displayObjectsArray).indexOf(supplementItem)
-        if index == NSNotFound { return }
-        let objectRemoved:NSManagedObject! = displayObjectsArray.removeAtIndex(index!)
-        DAO.deleteData(managedContext, entitiyName: "Exercise", deleteItem: objectRemoved)
-        tableView.beginUpdates()
-        let indexPathForRow = NSIndexPath(forRow: index!, inSection: 0)
-        tableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
-        tableView.endUpdates()
-    }
-    func getCurrentDay() -> String {
-        var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
-        
-        switch NSDate().dayOfWeek()!
-        {
-        case 1: return weekdayList[0];
-        case 2: return weekdayList[1];
-        case 3: return weekdayList[2];
-        case 4: return weekdayList[3];
-        case 5: return weekdayList[4];
-        case 6: return weekdayList[5];
-        case 7: return weekdayList[6];
-        default: return ""
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = self.viewTitle
@@ -100,19 +34,10 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(animated: Bool){
         super.viewWillAppear(animated)
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         
-        let fetchRequest = NSFetchRequest(entityName: entityToSave)
-        let predicate = NSPredicate(format:"day contains[c] %@",getCurrentDay())
-        print(getCurrentDay())
-        fetchRequest.predicate = predicate
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            displayObjectsArray = results as! [NSManagedObject]
-        } catch let error as NSError{
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
+        // Load the list of objects for the entity
+        displayObjectsArray = DAO.listAllData(managedContext, entityName: entityToSave)
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -123,16 +48,15 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
         
-        let supplement = displayObjectsArray[indexPath.row]
+        let displayObject = displayObjectsArray[indexPath.row]
         
-        cell?.backgroundColor = colorForIndex(indexPath.row)
+        cell?.backgroundColor = colorForIndex(indexPath.row) // Sets the color and makes a gradient based on the number of rows
         cell?.selectionStyle = .None
-        
-        cell.delegate = self
-        cell.supplementItem = supplement
+        cell.supplementItem = displayObject // Sets the data to display
         return cell!
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        // When the user taps on a cell a segue happens to the AddViewController
         chosenCellIndex = indexPath.row
         self.performSegueWithIdentifier("editSegue", sender: self)
     }
@@ -146,6 +70,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let supplement = displayObjectsArray[chosenCellIndex]
         
+        // Set the variables in the AddViewController so that the text fields and buttons will reflect the existing data
         secondViewController.addName = supplement.valueForKey("name") as! String
         secondViewController.addDay = supplement.valueForKey("day") as! String
         secondViewController.addNotes = supplement.valueForKey("notes") as! String
@@ -171,14 +96,4 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
 }
 
 
-extension NSDate{
-    func dayOfWeek() ->Int? {
-        if
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = cal.components(.Weekday, fromDate:self){
-            return comp.weekday
-        } else{
-            return nil
-        }
-    }
-}
+

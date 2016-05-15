@@ -12,6 +12,7 @@ import UIKit
 
 
 class AddViewController: UIViewController{
+    // Outlets for the day of the week selection buttons
     @IBOutlet weak var mondayButton: UIButton!
     @IBOutlet weak var tuesdayButton: UIButton!
     @IBOutlet weak var wednesdayButton: UIButton!
@@ -20,15 +21,17 @@ class AddViewController: UIViewController{
     @IBOutlet weak var saturdayButton: UIButton!
     @IBOutlet weak var sundayButton: UIButton!
     @IBOutlet weak var selectAllButton: UIButton!
+    // Outlets for the text fields
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var notesTextField: UITextView!
 
-    
+    // These variables are set in the storyboard on the ViewController
     @IBInspectable var selectionColor: UIColor!
     @IBInspectable var nonSelectionColor: UIColor!
     @IBInspectable var entityToSave: String!
     @IBInspectable var viewTitle: String!
     
+    // These variables are used when setting the fields from the EditViewController
     var addName: String!
     var addDay: String!
     var addNotes: String!
@@ -37,7 +40,7 @@ class AddViewController: UIViewController{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    let DAO = CoreDataDAO()
+    let DAO = CoreDataDAO() // Database Access Object
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,7 @@ class AddViewController: UIViewController{
         
         self.hideKeyboardWhenTappedAround()
         
+        // Action selectors for all the day of the week buttons. When the button is pressed the buttonClicked method is called
         mondayButton.addTarget(self, action:#selector(AddViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         tuesdayButton.addTarget(self, action:#selector(AddViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         wednesdayButton.addTarget(self, action:#selector(AddViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -55,7 +59,7 @@ class AddViewController: UIViewController{
         sundayButton.addTarget(self, action:#selector(AddViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         selectAllButton.addTarget(self, action: #selector(AddViewController.selectAllButtonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
-        
+        // Sets all the day of the week buttons so have the nonSelectionColor set in the storyboard
         mondayButton.backgroundColor = nonSelectionColor
         tuesdayButton.backgroundColor = nonSelectionColor
         wednesdayButton.backgroundColor = nonSelectionColor
@@ -65,6 +69,8 @@ class AddViewController: UIViewController{
         sundayButton.backgroundColor = nonSelectionColor
         selectAllButton.backgroundColor = nonSelectionColor
         
+        // If the edit flag is true that means the method was called from the EditViewController. If the addDay variable contains the code for
+        // a day of the week then that button is set to selected
         if(editFlag){
             if(addDay.containsString("Mon")){mondayButton.selected = false}
             if(addDay.containsString("Tue")){tuesdayButton.selected = true}
@@ -83,22 +89,21 @@ class AddViewController: UIViewController{
     func buttonClicked(sender:UIButton){
         
         sender.selected = !sender.selected
-        print("In buttonClicked with \(sender.selected)")
         var button: UIButton
         if let b = sender as? UIButton{
             button = b
             if(button.selected == true){
-                button.backgroundColor = selectionColor
+                button.backgroundColor = selectionColor // The button has been selected
                 
             }else{
-                button.backgroundColor = nonSelectionColor
+                button.backgroundColor = nonSelectionColor // The button has not been selected
             }
         }
         
     }
     func selectAllButtonClicked(sender: UIButton){
-        print("In selectAllButtonClicked \(sender.selected)")
-        if(/*sender.titleLabel == "Select All" &&*/ sender.selected == false){
+        // Method for handling the select all button
+        if(sender.selected == false){
             print("in true")
             mondayButton.selected = false // These are false do too the flip on the buttonClicked function
             tuesdayButton.selected = false
@@ -116,7 +121,7 @@ class AddViewController: UIViewController{
             saturdayButton.selected = true
             sundayButton.selected = true
         }
-        print("Monday button \(mondayButton.selected)")
+        
         buttonClicked(mondayButton)
         buttonClicked(tuesdayButton)
         buttonClicked(wednesdayButton)
@@ -131,6 +136,7 @@ class AddViewController: UIViewController{
         
         let managedContext = appDelegate.managedObjectContext
         if(!editFlag){
+            // If the editFlag is false then this class was not called fromt he EditViewController so all the edit variables are not set yet
             addDay = ""
             addName = nameTextField.text!
             addNotes = notesTextField.text!
@@ -142,7 +148,7 @@ class AddViewController: UIViewController{
             if(saturdayButton.selected == true){addDay = addDay + "Sat"}
             if(sundayButton.selected == true){addDay = addDay + "Sun"}
         }
-        DAO.saveData(managedContext, entityName: entityToSave, name: addName, day: addDay, notes: addNotes, completed: addCompleted)
+        DAO.saveData(managedContext, entityName: entityToSave, name: addName, day: addDay, notes: addNotes, completed: addCompleted) // Save a new entry into the CoreData database
         print("Saved the data")
     }
     
@@ -151,5 +157,4 @@ class AddViewController: UIViewController{
         
         self.title = self.viewTitle
     }
-
 }
