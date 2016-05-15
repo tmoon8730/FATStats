@@ -17,10 +17,15 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     var supplementsArray = [NSManagedObject]()
     var exerciseArray = [NSManagedObject]()
     let DAO = CoreDataDAO()
-    
+    lazy var refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.title = todayTitle()
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: Selector("refresh:"), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
     }
     override func viewWillAppear(animated: Bool){
         super.viewWillAppear(animated)
@@ -28,11 +33,11 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         let managedContext = appDelegate.managedObjectContext
         
         // Load supplement data
-        DAO.listCurrentDayData(managedContext, entityname: "Supplement")
+        supplementsArray = DAO.listCurrentDayData(managedContext, entityname: "Supplement")
         
         
         // Load exercise data
-        DAO.listCurrentDayData(managedContext, entityname: "Exercise")
+        exerciseArray = DAO.listCurrentDayData(managedContext, entityname: "Exercise")
         
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -60,13 +65,23 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
                 return "default"
         }
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
+        var supplement: NSManagedObject?
+        switch indexPath.section{
+        case 0:
+            supplement = supplementsArray[indexPath.row]
+            break;
+        case 1:
+            supplement = exerciseArray[indexPath.row]
+            break;
+        default:
+            print("cellForRowAtIndexPath error")
+            break;
+        }
         
-        let supplement = supplementsArray[indexPath.row]
-        //let exercise = exerciseArray[indexPath.row]
-        
-        cell?.backgroundColor = UIColor.grayColor()
+        cell?.backgroundColor = UIColor.clearColor()
         cell?.selectionStyle = .Gray
         cell?.supplementItem = supplement
         
@@ -77,5 +92,32 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         let secondViewContoller = segue.destinationViewController as! NotesTrackerViewController
+    }
+    
+    func todayTitle() -> String{
+        let currentDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateFormat = "EEE, MMM dd"
+        var convertedDate = dateFormatter.stringFromDate(currentDate)
+        return convertedDate;
+    }
+    override func awakeFromNib(){
+        super.awakeFromNib()
+        
+        self.title = todayTitle()
+    }
+    func refresh(sender:AnyObject){
+        let managedContext = appDelegate.managedObjectContext
+        // Load supplement data
+        supplementsArray = DAO.listCurrentDayData(managedContext, entityname: "Supplement")
+        
+        
+        // Load exercise data
+        exerciseArray = DAO.listCurrentDayData(managedContext, entityname: "Exercise")
+        
+        tableView.reloadData()
+        refreshControl.endRefreshing()
     }
 }
