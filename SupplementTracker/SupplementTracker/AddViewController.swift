@@ -85,6 +85,13 @@ class AddViewController: UIViewController{
         }
         
         
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(doneButtonTapped))
+        
+    }
+    
+    func doneButtonTapped(sender:UIButton){
+        dismissKeyboard()
     }
     func buttonClicked(sender:UIButton){
         
@@ -150,6 +157,7 @@ class AddViewController: UIViewController{
         }
         DAO.saveData(managedContext, entityName: entityToSave, name: addName, day: addDay, notes: addNotes, completed: addCompleted) // Save a new entry into the CoreData database
         print("Saved the data")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func awakeFromNib(){
