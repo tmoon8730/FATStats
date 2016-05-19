@@ -14,19 +14,28 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notesTextView: UITextView!
     var supplementsArray = [NSManagedObject]()
     var exerciseArray = [NSManagedObject]()
     let DAO = CoreDataDAO()
     lazy var refreshControl: UIRefreshControl = UIRefreshControl()
     
+    @IBAction func saveDayNote(sender: AnyObject) {
+        let managedContext = appDelegate.managedObjectContext
+        DAO.saveData(managedContext, entityName: "DayNotes", day: getCurrentDay(), notes: notesTextView.text!)
+        print("Saved Note \(notesTextView.text!)")
+        notesTextView.text = ""
+    }
+    
     override func viewDidLoad() {
-        tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
+        //tableView.registerClass(TodayTableViewCell.self, forCellReuseIdentifier: "Cell")
         self.title = todayTitle()
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: Selector("refresh:"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(TodayViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
     }
+    
     override func viewWillAppear(animated: Bool){
         super.viewWillAppear(animated)
         
@@ -40,9 +49,11 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         exerciseArray = DAO.listCurrentDayData(managedContext, entityname: "Exercise")
         
     }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(tableView:UITableView, numberOfRowsInSection section: Int) -> Int{
         switch section{
             case 0:
@@ -55,6 +66,7 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
                 return 1
         }
     }
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
             case 0:
@@ -67,7 +79,7 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TodayTableViewCell
         var supplement: NSManagedObject?
         switch indexPath.section{
         case 0:
@@ -80,16 +92,18 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
             print("cellForRowAtIndexPath error")
             break;
         }
+        cell.selectionStyle = .Gray
+        cell.nameLabel.text = supplement!.valueForKey("name") as? String
+        cell.notesLabel.text = supplement!.valueForKey("notes") as? String
+        cell.backgroundColor = UIColor.clearColor()
         
-        cell?.backgroundColor = UIColor.clearColor()
-        cell?.selectionStyle = .Gray
-        cell?.supplementItem = supplement
-        
-        return cell!
+        return cell
     }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.performSegueWithIdentifier("ShowNotesTrackerSegue", sender: self)
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         let secondViewContoller = segue.destinationViewController as! NotesTrackerViewController
     }
@@ -100,9 +114,10 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         dateFormatter.locale = NSLocale.currentLocale()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.dateFormat = "EEE, MMM dd"
-        var convertedDate = dateFormatter.stringFromDate(currentDate)
+        let convertedDate = dateFormatter.stringFromDate(currentDate)
         return convertedDate;
     }
+    
     override func awakeFromNib(){
         super.awakeFromNib()
         

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,21 +19,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supplement Tracker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="293-Lt-03k">
-                                <rect key="frame" x="114" y="262" width="373" height="76"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nutriments.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-re-zH1">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="9DT-NQ-B7s"/>
-                                    <constraint firstAttribute="width" constant="373" id="PJX-xD-5ag"/>
+                                    <constraint firstAttribute="width" secondItem="mgC-re-zH1" secondAttribute="height" multiplier="1:1" id="eNs-iA-Sr4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="293-Lt-03k" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5nW-V0-Q8O"/>
-                            <constraint firstItem="293-Lt-03k" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KSc-ik-jpk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mgC-re-zH1" secondAttribute="trailing" id="Uby-SL-mpq"/>
+                            <constraint firstItem="mgC-re-zH1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="htL-4e-M4i"/>
+                            <constraint firstItem="mgC-re-zH1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="ve4-Ly-ha6"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,4 +39,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Nutriments.png" width="400" height="400"/>
+    </resources>
+    <color key="tintColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

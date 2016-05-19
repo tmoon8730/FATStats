@@ -38,6 +38,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Load the list of objects for the entity
         displayObjectsArray = DAO.listAllData(managedContext, entityName: entityToSave)
+        print("editviewcontroller \(displayObjectsArray.count)")
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

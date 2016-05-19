@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7D9E40BF1CDB9DD600FEE297"
-               BuildableName = "SupplementTracker.app"
-               BlueprintName = "SupplementTracker"
-               ReferencedContainer = "container:SupplementTracker.xcodeproj">
+               BuildableName = "Nutriments.app"
+               BlueprintName = "Nutriments"
+               ReferencedContainer = "container:Nutriments.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7D9E40BF1CDB9DD600FEE297"
-            BuildableName = "SupplementTracker.app"
-            BlueprintName = "SupplementTracker"
-            ReferencedContainer = "container:SupplementTracker.xcodeproj">
+            BuildableName = "Nutriments.app"
+            BlueprintName = "Nutriments"
+            ReferencedContainer = "container:Nutriments.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7D9E40BF1CDB9DD600FEE297"
-            BuildableName = "SupplementTracker.app"
-            BlueprintName = "SupplementTracker"
-            ReferencedContainer = "container:SupplementTracker.xcodeproj">
+            BuildableName = "Nutriments.app"
+            BlueprintName = "Nutriments"
+            ReferencedContainer = "container:Nutriments.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7D9E40BF1CDB9DD600FEE297"
-            BuildableName = "SupplementTracker.app"
-            BlueprintName = "SupplementTracker"
-            ReferencedContainer = "container:SupplementTracker.xcodeproj">
+            BuildableName = "Nutriments.app"
+            BlueprintName = "Nutriments"
+            ReferencedContainer = "container:Nutriments.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

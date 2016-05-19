@@ -31,6 +31,20 @@ class CoreDataDAO {
         return managedObject // return the object if the new object needs to be used to remove it from the array in the table
     }
     
+    internal func saveData(managedContext: NSManagedObjectContext, entityName: String, day: String, notes: String) -> NSManagedObject{
+        let entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedContext) // A variable containing information for a specific entity
+        let managedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext) // A new NSManagedObject to insert into the CoreData entity
+        managedObject.setValue(day,forKey:"day")
+        managedObject.setValue(notes,forKey: "notes")
+        do{
+            try managedContext.save() // save the data to CoreData
+        }catch let e as NSError{
+            print("Could not save \(e), \(e.userInfo)")
+        }
+        return managedObject // return the object if the new object needs to be used to remove it from the array in the table
+
+    }
+    
     internal func deleteData(managedContext: NSManagedObjectContext, entitiyName: String, deleteItem: NSManagedObject){
         let predicate = NSPredicate(format: "name == %@", argumentArray: [deleteItem.valueForKey("name")!]) // Predicates are similar to SQL queries and specifiy which record to delete
         let fetchRequest = NSFetchRequest(entityName: entitiyName) // A wrapper for the predicate which does the request to the database
@@ -59,6 +73,7 @@ class CoreDataDAO {
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
             returnArray = results as! [NSManagedObject]
+            print("\(returnArray.count)")
         }catch let e as NSError{
             print("Error getting list \(e), \(e.userInfo)")
         }
