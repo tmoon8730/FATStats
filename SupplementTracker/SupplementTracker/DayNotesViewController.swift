@@ -13,7 +13,9 @@ import CoreData
 class DayNotesViewController: EditViewController{
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         tableView.registerClass(DayNotesTableViewCell.self, forCellReuseIdentifier: "NoteCell")
+        tableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool){
@@ -32,7 +34,7 @@ class DayNotesViewController: EditViewController{
         let displayObject = displayObjectsArray[indexPath.row]
         
         cell.backgroundColor = UIColor.clearColor()
-        cell.selectionStyle = .None
+        //cell.selectionStyle = .None
         cell.supplementItem = displayObject
         print("\(displayObject.valueForKey("day")) \(displayObject.valueForKey("notes"))")
         return cell

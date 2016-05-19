@@ -25,6 +25,7 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         DAO.saveData(managedContext, entityName: "DayNotes", day: getCurrentDay(), notes: notesTextView.text!)
         print("Saved Note \(notesTextView.text!)")
         notesTextView.text = ""
+        dismissKeyboard()
     }
     
     override func viewDidLoad() {
