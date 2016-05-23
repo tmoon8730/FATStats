@@ -5,13 +5,13 @@
 //  Created by Tyler Moon on 5/14/16.
 //  Copyright © 2016 Tyler Moon. All rights reserved.
 //
-
 import Foundation
 import UIKit
+import QuartzCore
 @IBDesignable
 
 
-class AddViewController: UIViewController{
+class AddViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
     // Outlets for the day of the week selection buttons
     @IBOutlet weak var mondayButton: UIButton!
     @IBOutlet weak var tuesdayButton: UIButton!
@@ -45,9 +45,17 @@ class AddViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.title = viewTitle
         
         self.hideKeyboardWhenTappedAround()
+        
+        self.notesTextField.delegate = self;
+        self.nameTextField.delegate = self;
+        
+        // Sets the border around the notes text view
+        self.notesTextField.layer.borderWidth = 1.0
+        self.notesTextField.layer.borderColor = UIColor.blackColor().CGColor
         
         // Action selectors for all the day of the week buttons. When the button is pressed the buttonClicked method is called
         mondayButton.addTarget(self, action:#selector(AddViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
@@ -86,26 +94,32 @@ class AddViewController: UIViewController{
         
         
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(doneButtonTapped))
+        
         
     }
-    
-    func doneButtonTapped(sender:UIButton){
-        dismissKeyboard()
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool{
+        if(text == "\n"){
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     func buttonClicked(sender:UIButton){
         
         sender.selected = !sender.selected
-        var button: UIButton
-        if let b = sender as? UIButton{
-            button = b
-            if(button.selected == true){
-                button.backgroundColor = selectionColor // The button has been selected
-                
-            }else{
-                button.backgroundColor = nonSelectionColor // The button has not been selected
-            }
+
+        if(sender.selected == true){
+            sender.backgroundColor = selectionColor // The button has been selected
+            sender.titleLabel!.textColor = UIColor.whiteColor()
+        }else{
+            sender.backgroundColor = nonSelectionColor // The button has not been selected
+            sender.tintColor = UIColor.darkGrayColor()
         }
+        
         
     }
     func selectAllButtonClicked(sender: UIButton){

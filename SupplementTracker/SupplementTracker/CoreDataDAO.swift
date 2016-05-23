@@ -16,6 +16,7 @@ class CoreDataDAO {
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate // Used in accessing the CoreData database
     
+    // Save data to the specified entity, used for exercise and supplement data
     internal func saveData(managedContext: NSManagedObjectContext, entityName: String,name: String, day: String, notes: String, completed: Bool) -> NSManagedObject {
         let entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedContext) // A variable containing information for a specific entity
         let managedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext) // A new NSManagedObject to insert into the CoreData entity
@@ -30,7 +31,7 @@ class CoreDataDAO {
         }
         return managedObject // return the object if the new object needs to be used to remove it from the array in the table
     }
-    
+    // Save data to the specified entity, used for day notes data
     internal func saveData(managedContext: NSManagedObjectContext, entityName: String, day: String, notes: String) -> NSManagedObject{
         let entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedContext) // A variable containing information for a specific entity
         let managedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext) // A new NSManagedObject to insert into the CoreData entity
@@ -44,7 +45,7 @@ class CoreDataDAO {
         return managedObject // return the object if the new object needs to be used to remove it from the array in the table
 
     }
-    
+    // Delete data from the specified entity
     internal func deleteData(managedContext: NSManagedObjectContext, entitiyName: String, deleteItem: NSManagedObject){
         let predicate = NSPredicate(format: "name == %@", argumentArray: [deleteItem.valueForKey("name")!]) // Predicates are similar to SQL queries and specifiy which record to delete
         let fetchRequest = NSFetchRequest(entityName: entitiyName) // A wrapper for the predicate which does the request to the database
@@ -67,6 +68,7 @@ class CoreDataDAO {
         }
 
     }
+    // Returns all the data from a specified entity
     internal func listAllData(managedContext: NSManagedObjectContext, entityName: String) -> [NSManagedObject]{
         var returnArray = [NSManagedObject]()
         let fetchRequest = NSFetchRequest(entityName: entityName)
@@ -79,6 +81,7 @@ class CoreDataDAO {
         }
         return returnArray
     }
+    // Returns all the data from a specified entity where the day field matches the current day
     internal func listCurrentDayData(managedContext: NSManagedObjectContext, entityname: String) -> [NSManagedObject]{
         var returnArray = [NSManagedObject]()
         let fetchRequest = NSFetchRequest(entityName: entityname)

@@ -28,7 +28,7 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         title = self.viewTitle
         tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.separatorStyle = .None
+       // tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
     }
     override func viewWillAppear(animated: Bool){

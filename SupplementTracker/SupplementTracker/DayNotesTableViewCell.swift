@@ -26,7 +26,7 @@ class DayNotesTableViewCell: UITableViewCell{
             itemCompleteLayer.hidden = true
         }
     }
-    let label: StrikeThroughText
+    @IBOutlet var label: StrikeThroughText!
     var itemCompleteLayer = CALayer()
     
     

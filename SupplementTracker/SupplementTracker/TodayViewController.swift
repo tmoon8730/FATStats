@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Foundation
 
-class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
+class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var tableView: UITableView!
@@ -105,10 +105,6 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         self.performSegueWithIdentifier("ShowNotesTrackerSegue", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        let secondViewContoller = segue.destinationViewController as! NotesTrackerViewController
-    }
-    
     func todayTitle() -> String{
         let currentDate = NSDate()
         let dateFormatter = NSDateFormatter()
@@ -135,5 +131,12 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         
         tableView.reloadData()
         refreshControl.endRefreshing()
+    }
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool{
+        if(text == "\n"){
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }
