@@ -17,6 +17,7 @@
 		7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */; };
 		7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72C9901CDD010500859A75 /* StrikeThroughText.swift */; };
 		7D80C6E71CECE7EE003CF0B2 /* Nutriments.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */; };
+		7D89D58A1CF3E63A007646D0 /* DayNotesAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */; };
 		7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */; };
 		7D9E40C91CDB9DD600FEE297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E40C71CDB9DD600FEE297 /* Main.storyboard */; };
 		7D9E40CC1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40CA1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld */; };
@@ -40,6 +41,7 @@
 		7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		7D72C9901CDD010500859A75 /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nutriments.png; path = ../../../../../Downloads/Nutriments.png; sourceTree = "<group>"; };
+		7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesAddController.swift; sourceTree = "<group>"; };
 		7D9E40C01CDB9DD600FEE297 /* Nutriments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutriments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D9E40C81CDB9DD600FEE297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				7D9E40D81CDBB8A500FEE297 /* TableViewCell.swift */,
 				7D72C9901CDD010500859A75 /* StrikeThroughText.swift */,
 				7D9E40C71CDB9DD600FEE297 /* Main.storyboard */,
+				7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */,
 				7DBFA0C31CE95C280080EE88 /* TodayTableViewCell.swift */,
 				7DBFA0BD1CE75FE90080EE88 /* AddViewController.swift */,
 				7DBFA0C11CE81A820080EE88 /* Utilities.swift */,
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D89D58A1CF3E63A007646D0 /* DayNotesAddController.swift in Sources */,
 				7DBFA0C41CE95C280080EE88 /* TodayTableViewCell.swift in Sources */,
 				7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */,
 				7DBFA0BE1CE75FE90080EE88 /* AddViewController.swift in Sources */,

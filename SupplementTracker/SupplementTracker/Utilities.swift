@@ -28,6 +28,15 @@ extension NSDate{
         }
     }
 }
+func todayTitle() -> String{
+    let currentDate = NSDate()
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.locale = NSLocale.currentLocale()
+    dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+    dateFormatter.dateFormat = "EEE, MMM dd"
+    let convertedDate = dateFormatter.stringFromDate(currentDate)
+    return convertedDate;
+}
 func getCurrentDay() -> String {
     var weekdayList: [String] = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"]
     

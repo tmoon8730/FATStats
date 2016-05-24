@@ -105,15 +105,27 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         self.performSegueWithIdentifier("ShowNotesTrackerSegue", sender: self)
     }
     
-    func todayTitle() -> String{
-        let currentDate = NSDate()
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale.currentLocale()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.dateFormat = "EEE, MMM dd"
-        let convertedDate = dateFormatter.stringFromDate(currentDate)
-        return convertedDate;
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var deleteObject: NSManagedObject?
+            var entityString: String = ""
+            switch indexPath.section{
+            case 0:
+                deleteObject = supplementsArray.removeAtIndex(indexPath.row)
+                entityString = "Supplement"
+                break
+            case 1:
+                deleteObject = exerciseArray.removeAtIndex(indexPath.row)
+                entityString = "Exercise"
+                break
+            default:
+                break
+            }
+            DAO.deleteData(appDelegate.managedObjectContext, entitiyName: entityString, deleteItem: deleteObject!)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
+    
     
     override func awakeFromNib(){
         super.awakeFromNib()
