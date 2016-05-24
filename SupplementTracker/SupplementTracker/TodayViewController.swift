@@ -106,7 +106,7 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
-        if editingStyle == UITableViewCellEditingStyle.Delete {
+      /*  if editingStyle == UITableViewCellEditingStyle.Delete {
             var deleteObject: NSManagedObject?
             var entityString: String = ""
             switch indexPath.section{
@@ -123,9 +123,38 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
             }
             DAO.deleteData(appDelegate.managedObjectContext, entitiyName: entityString, deleteItem: deleteObject!)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
+        }*/
     }
-    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let completeAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Completed", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            // Completed stuff
+            print("In completed")
+        })
+        completeAction.backgroundColor = UIColor.greenColor()
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+            // Delete Stuff
+            print("In delete")
+            var deleteObject: NSManagedObject?
+            var entityString: String = ""
+            switch indexPath.section{
+            case 0:
+                deleteObject = self.supplementsArray.removeAtIndex(indexPath.row)
+                entityString = "Supplement"
+                break
+            case 1:
+                deleteObject = self.exerciseArray.removeAtIndex(indexPath.row)
+                entityString = "Exercise"
+                break
+            default:
+                break
+            }
+            self.DAO.deleteData(self.appDelegate.managedObjectContext, entitiyName: entityString, deleteItem: deleteObject!)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+
+        })
+        return [completeAction, deleteAction]
+    }
     
     override func awakeFromNib(){
         super.awakeFromNib()

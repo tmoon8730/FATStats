@@ -31,6 +31,7 @@ class DayNotesViewController: EditViewController{
         
         // Load the list of objects for the entity
         displayObjectsArray = DAO.listAllData(managedContext, entityName: entityToSave)
+       // displayObjectsArray.sort{ $0.name.compare($1.name) == NSComparisonResult.OrderedDescending }
         print("daynotesviewcontroller \(displayObjectsArray.count)")
     }
     

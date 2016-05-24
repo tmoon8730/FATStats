@@ -96,4 +96,19 @@ class CoreDataDAO {
         return returnArray
     }
     
+    internal func markCompleted(managedContext: NSManagedObjectContext, entityname: String, completedItem: NSManagedObject){
+        let predicate = NSPredicate(format: "name == %@", argumentArray: [completedItem.valueForKey("name")!])
+        
+        let fetchRequest = NSFetchRequest(entityName: entityname)
+        
+        fetchRequest.predicate = predicate
+        do{
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            //results.first?.valueForKey("completed") = true
+            print("ERROR MARK COMPLETED IS NOT DONE")
+        }catch let e as NSError{
+            print("Error getting list \(e), \(e.userInfo)")
+        }
+
+    }
 }
