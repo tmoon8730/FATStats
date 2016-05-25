@@ -22,5 +22,10 @@ class DayNotesAddController: UIViewController{
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        noteText.layer.borderColor = UIColor(red: 20/255, green: 126/255, blue: 240/255, alpha: 1.0).CGColor
+        noteText.layer.borderWidth = 2.0
+    }
 
 }

@@ -45,7 +45,12 @@ class AddViewController: UIViewController, UITextFieldDelegate, UITextViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        nameTextField.layer.borderWidth = 2.0
+        nameTextField.layer.borderColor = UIColor(red: 20/255, green: 126/255, blue: 240/255, alpha: 1.0).CGColor
+        notesTextField.layer.masksToBounds = false
+        notesTextField.layer.borderColor = UIColor(red: 20/255, green: 126/255, blue: 240/255, alpha: 1.0).CGColor
+        notesTextField.layer.borderWidth = 2.0
+        notesTextField.layer.cornerRadius = 0
         self.title = viewTitle
         
         self.hideKeyboardWhenTappedAround()
