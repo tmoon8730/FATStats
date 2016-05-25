@@ -35,6 +35,7 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(TodayViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+        
     }
     
     override func viewWillAppear(animated: Bool){
@@ -50,7 +51,17 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         exerciseArray = DAO.listCurrentDayData(managedContext, entityname: "Exercise")
         
     }
-    
+    func loadData(){
+        let managedContext = appDelegate.managedObjectContext
+        
+        // Load supplement data
+        supplementsArray = DAO.listCurrentDayData(managedContext, entityname: "Supplement")
+        
+        
+        // Load exercise data
+        exerciseArray = DAO.listCurrentDayData(managedContext, entityname: "Exercise")
+        tableView.reloadData()
+    }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -93,6 +104,14 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
             print("cellForRowAtIndexPath error")
             break;
         }
+        
+        if((supplement?.valueForKey("completed"))! as! Bool == true){
+            cell.completedImage.hidden = false
+        }else{
+            cell.completedImage.hidden = true
+        }
+
+        
         cell.selectionStyle = .Gray
         cell.nameLabel.text = supplement!.valueForKey("name") as? String
         cell.notesLabel.text = supplement!.valueForKey("notes") as? String
@@ -126,36 +145,47 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         }*/
     }
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        var deleteOrUpdateObject: NSManagedObject?
+        var entityString: String = ""
+        switch indexPath.section{
+        case 0:
+            deleteOrUpdateObject = self.supplementsArray.removeAtIndex(indexPath.row)
+            entityString = "Supplement"
+            break
+        case 1:
+            deleteOrUpdateObject = self.exerciseArray.removeAtIndex(indexPath.row)
+            entityString = "Exercise"
+            break
+        default:
+            break
+        }
+
         let completeAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Completed", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             // Completed stuff
             print("In completed")
+            print("Entity: \(entityString)")
+            print("deleteOrUpdateObject: \(deleteOrUpdateObject)")
+            self.DAO.markCompleted(self.appDelegate.managedObjectContext, entityname: entityString, completedItem: deleteOrUpdateObject!)
+            self.loadData()
         })
         completeAction.backgroundColor = UIColor.greenColor()
         
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             // Delete Stuff
             print("In delete")
-            var deleteObject: NSManagedObject?
-            var entityString: String = ""
-            switch indexPath.section{
-            case 0:
-                deleteObject = self.supplementsArray.removeAtIndex(indexPath.row)
-                entityString = "Supplement"
-                break
-            case 1:
-                deleteObject = self.exerciseArray.removeAtIndex(indexPath.row)
-                entityString = "Exercise"
-                break
-            default:
-                break
-            }
-            self.DAO.deleteData(self.appDelegate.managedObjectContext, entitiyName: entityString, deleteItem: deleteObject!)
+            self.DAO.deleteData(self.appDelegate.managedObjectContext, entitiyName: entityString, deleteItem: deleteOrUpdateObject!)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-
+            self.loadData()
         })
         return [completeAction, deleteAction]
     }
-    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        
+        header.contentView.backgroundColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1.0)
+        
+    }
     override func awakeFromNib(){
         super.awakeFromNib()
         

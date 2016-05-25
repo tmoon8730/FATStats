@@ -103,11 +103,23 @@ class CoreDataDAO {
         
         fetchRequest.predicate = predicate
         do{
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            //results.first?.valueForKey("completed") = true
-            print("ERROR MARK COMPLETED IS NOT DONE")
+            if let results = try managedContext.executeFetchRequest(fetchRequest) as? [Supplement]{
+                results.first?.completed = !(results.first?.completed)!
+                print("\(results)")
+            }
+            if let results = try managedContext.executeFetchRequest(fetchRequest) as? [Exercise]{
+                results.first?.completed = !(results.first?.completed)!
+                print("\(results)")
+            }
+            
         }catch let e as NSError{
             print("Error getting list \(e), \(e.userInfo)")
+        }
+        
+        do {
+            try managedContext.save()
+        }catch let e as NSError{
+            print("Error saving data \(e), \(e.userInfo)")
         }
 
     }

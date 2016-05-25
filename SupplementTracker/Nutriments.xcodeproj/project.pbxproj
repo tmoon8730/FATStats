@@ -16,6 +16,13 @@
 		7D351FE11CED56D9005C69F4 /* DayNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D351FE01CED56D9005C69F4 /* DayNotesTableViewCell.swift */; };
 		7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */; };
 		7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72C9901CDD010500859A75 /* StrikeThroughText.swift */; };
+		7D7EC8231CF4F9A000212384 /* DayNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC81D1CF4F9A000212384 /* DayNotes+CoreDataProperties.swift */; };
+		7D7EC8241CF4F9A000212384 /* DayNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC81E1CF4F9A000212384 /* DayNotes.swift */; };
+		7D7EC8251CF4F9A000212384 /* Supplement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC81F1CF4F9A000212384 /* Supplement+CoreDataProperties.swift */; };
+		7D7EC8261CF4F9A000212384 /* Supplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC8201CF4F9A000212384 /* Supplement.swift */; };
+		7D7EC8271CF4F9A000212384 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC8211CF4F9A000212384 /* Exercise+CoreDataProperties.swift */; };
+		7D7EC8281CF4F9A000212384 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC8221CF4F9A000212384 /* Exercise.swift */; };
+		7D7EC82E1CF51DBD00212384 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D7EC82D1CF51DBD00212384 /* checkmark.png */; };
 		7D80C6E71CECE7EE003CF0B2 /* Nutriments.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */; };
 		7D89D58A1CF3E63A007646D0 /* DayNotesAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */; };
 		7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */; };
@@ -40,6 +47,13 @@
 		7D351FE01CED56D9005C69F4 /* DayNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesTableViewCell.swift; sourceTree = "<group>"; };
 		7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		7D72C9901CDD010500859A75 /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
+		7D7EC81D1CF4F9A000212384 /* DayNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DayNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D7EC81E1CF4F9A000212384 /* DayNotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotes.swift; sourceTree = "<group>"; };
+		7D7EC81F1CF4F9A000212384 /* Supplement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Supplement+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D7EC8201CF4F9A000212384 /* Supplement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Supplement.swift; sourceTree = "<group>"; };
+		7D7EC8211CF4F9A000212384 /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7D7EC8221CF4F9A000212384 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7D7EC82D1CF51DBD00212384 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = ../../../../../Downloads/checkmark.png; sourceTree = "<group>"; };
 		7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nutriments.png; path = ../../../../../Downloads/Nutriments.png; sourceTree = "<group>"; };
 		7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesAddController.swift; sourceTree = "<group>"; };
 		7D9E40C01CDB9DD600FEE297 /* Nutriments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutriments.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +84,7 @@
 		7D19941C1CF2844D008FE8D7 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7D7EC82D1CF51DBD00212384 /* checkmark.png */,
 				7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */,
 				7D19941D1CF28459008FE8D7 /* 58px-supplements.png */,
 				7D1994211CF288B4008FE8D7 /* 27px-supplements.png */,
@@ -81,6 +96,12 @@
 		7D9E40B71CDB9DD600FEE297 = {
 			isa = PBXGroup;
 			children = (
+				7D7EC81D1CF4F9A000212384 /* DayNotes+CoreDataProperties.swift */,
+				7D7EC81E1CF4F9A000212384 /* DayNotes.swift */,
+				7D7EC81F1CF4F9A000212384 /* Supplement+CoreDataProperties.swift */,
+				7D7EC8201CF4F9A000212384 /* Supplement.swift */,
+				7D7EC8211CF4F9A000212384 /* Exercise+CoreDataProperties.swift */,
+				7D7EC8221CF4F9A000212384 /* Exercise.swift */,
 				7D9E40C21CDB9DD600FEE297 /* Nutriments */,
 				7D9E40C11CDB9DD600FEE297 /* Products */,
 			);
@@ -181,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D1994201CF2845E008FE8D7 /* 58px-exercise.png in Resources */,
+				7D7EC82E1CF51DBD00212384 /* checkmark.png in Resources */,
 				7D9E40D11CDB9DD600FEE297 /* LaunchScreen.storyboard in Resources */,
 				7D19941E1CF28459008FE8D7 /* 58px-supplements.png in Resources */,
 				7D9E40CE1CDB9DD600FEE297 /* Assets.xcassets in Resources */,
@@ -197,20 +219,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D7EC8241CF4F9A000212384 /* DayNotes.swift in Sources */,
 				7D89D58A1CF3E63A007646D0 /* DayNotesAddController.swift in Sources */,
 				7DBFA0C41CE95C280080EE88 /* TodayTableViewCell.swift in Sources */,
 				7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */,
 				7DBFA0BE1CE75FE90080EE88 /* AddViewController.swift in Sources */,
+				7D7EC8281CF4F9A000212384 /* Exercise.swift in Sources */,
 				7DBFA0C01CE813C70080EE88 /* EditViewController.swift in Sources */,
 				7D9E40CC1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld in Sources */,
+				7D7EC8251CF4F9A000212384 /* Supplement+CoreDataProperties.swift in Sources */,
 				7D351FDF1CED5512005C69F4 /* DayNotesViewController.swift in Sources */,
 				7D03A7121CE3DDDE00241873 /* NotesTrackerViewController.swift in Sources */,
 				7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */,
 				7D351FE11CED56D9005C69F4 /* DayNotesTableViewCell.swift in Sources */,
 				7D9E40D91CDBB8A500FEE297 /* TableViewCell.swift in Sources */,
 				7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */,
+				7D7EC8261CF4F9A000212384 /* Supplement.swift in Sources */,
 				7DBFA0C21CE81A820080EE88 /* Utilities.swift in Sources */,
+				7D7EC8271CF4F9A000212384 /* Exercise+CoreDataProperties.swift in Sources */,
 				7D30FED41CE23EDE00FEC4B4 /* TodayViewController.swift in Sources */,
+				7D7EC8231CF4F9A000212384 /* DayNotes+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

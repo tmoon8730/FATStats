@@ -11,8 +11,9 @@ import CoreData
 
 class TodayTableViewCell: UITableViewCell{
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UITextView!
     @IBOutlet weak var notesLabel: UITextView!
+    @IBOutlet weak var completedImage: UIImageView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)

@@ -21,7 +21,8 @@ class StrikeThroughText: UILabel {
         }
     }
     
-    required init(coder aDecoder: NSCoder){
+    required init(coder: NSCoder) {
+
         fatalError("NSCoding not supported")
     }
     override init(frame: CGRect){
