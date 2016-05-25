@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D26F2671CF602CD00994344 /* Compose_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26F2661CF602CD00994344 /* Compose_Icon.png */; };
 		7D03A7121CE3DDDE00241873 /* NotesTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D03A7111CE3DDDE00241873 /* NotesTrackerViewController.swift */; };
-		7D19941E1CF28459008FE8D7 /* 58px-supplements.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D19941D1CF28459008FE8D7 /* 58px-supplements.png */; };
-		7D1994201CF2845E008FE8D7 /* 58px-exercise.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D19941F1CF2845E008FE8D7 /* 58px-exercise.png */; };
-		7D1994221CF288B4008FE8D7 /* 27px-supplements.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D1994211CF288B4008FE8D7 /* 27px-supplements.png */; };
 		7D30FED41CE23EDE00FEC4B4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D30FED31CE23EDE00FEC4B4 /* TodayViewController.swift */; };
 		7D351FDF1CED5512005C69F4 /* DayNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D351FDE1CED5512005C69F4 /* DayNotesViewController.swift */; };
 		7D351FE11CED56D9005C69F4 /* DayNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D351FE01CED56D9005C69F4 /* DayNotesTableViewCell.swift */; };
@@ -22,8 +20,6 @@
 		7D7EC8261CF4F9A000212384 /* Supplement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC8201CF4F9A000212384 /* Supplement.swift */; };
 		7D7EC8271CF4F9A000212384 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC8211CF4F9A000212384 /* Exercise+CoreDataProperties.swift */; };
 		7D7EC8281CF4F9A000212384 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC8221CF4F9A000212384 /* Exercise.swift */; };
-		7D7EC82E1CF51DBD00212384 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D7EC82D1CF51DBD00212384 /* checkmark.png */; };
-		7D80C6E71CECE7EE003CF0B2 /* Nutriments.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */; };
 		7D89D58A1CF3E63A007646D0 /* DayNotesAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */; };
 		7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */; };
 		7D9E40C91CDB9DD600FEE297 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E40C71CDB9DD600FEE297 /* Main.storyboard */; };
@@ -38,10 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D26F2661CF602CD00994344 /* Compose_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Compose_Icon.png; path = images/Compose_Icon.png; sourceTree = "<group>"; };
 		7D03A7111CE3DDDE00241873 /* NotesTrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTrackerViewController.swift; sourceTree = "<group>"; };
-		7D19941D1CF28459008FE8D7 /* 58px-supplements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "58px-supplements.png"; path = "../../../../../Downloads/58px-supplements.png"; sourceTree = "<group>"; };
-		7D19941F1CF2845E008FE8D7 /* 58px-exercise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "58px-exercise.png"; path = "../../../../../Downloads/58px-exercise.png"; sourceTree = "<group>"; };
-		7D1994211CF288B4008FE8D7 /* 27px-supplements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "27px-supplements.png"; path = "../../../../../Downloads/27px-supplements.png"; sourceTree = "<group>"; };
 		7D30FED31CE23EDE00FEC4B4 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		7D351FDE1CED5512005C69F4 /* DayNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesViewController.swift; sourceTree = "<group>"; };
 		7D351FE01CED56D9005C69F4 /* DayNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesTableViewCell.swift; sourceTree = "<group>"; };
@@ -53,8 +47,6 @@
 		7D7EC8201CF4F9A000212384 /* Supplement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Supplement.swift; sourceTree = "<group>"; };
 		7D7EC8211CF4F9A000212384 /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D7EC8221CF4F9A000212384 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		7D7EC82D1CF51DBD00212384 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = ../../../../../Downloads/checkmark.png; sourceTree = "<group>"; };
-		7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nutriments.png; path = ../../../../../Downloads/Nutriments.png; sourceTree = "<group>"; };
 		7D89D5891CF3E63A007646D0 /* DayNotesAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesAddController.swift; sourceTree = "<group>"; };
 		7D9E40C01CDB9DD600FEE297 /* Nutriments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutriments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,11 +76,7 @@
 		7D19941C1CF2844D008FE8D7 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				7D7EC82D1CF51DBD00212384 /* checkmark.png */,
-				7D80C6E61CECE7EE003CF0B2 /* Nutriments.png */,
-				7D19941D1CF28459008FE8D7 /* 58px-supplements.png */,
-				7D1994211CF288B4008FE8D7 /* 27px-supplements.png */,
-				7D19941F1CF2845E008FE8D7 /* 58px-exercise.png */,
+				6D26F2661CF602CD00994344 /* Compose_Icon.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -201,13 +189,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D1994201CF2845E008FE8D7 /* 58px-exercise.png in Resources */,
-				7D7EC82E1CF51DBD00212384 /* checkmark.png in Resources */,
 				7D9E40D11CDB9DD600FEE297 /* LaunchScreen.storyboard in Resources */,
-				7D19941E1CF28459008FE8D7 /* 58px-supplements.png in Resources */,
+				6D26F2671CF602CD00994344 /* Compose_Icon.png in Resources */,
 				7D9E40CE1CDB9DD600FEE297 /* Assets.xcassets in Resources */,
-				7D1994221CF288B4008FE8D7 /* 27px-supplements.png in Resources */,
-				7D80C6E71CECE7EE003CF0B2 /* Nutriments.png in Resources */,
 				7D9E40C91CDB9DD600FEE297 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

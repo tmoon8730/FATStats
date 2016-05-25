@@ -10,11 +10,15 @@ import UIKit
 import CoreData
 import Foundation
 
+@IBDesignable
+
 class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate{
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notesTextView: UITextView!
+    @IBOutlet weak var trackTodayButton: UIButton!
+    
     var supplementsArray = [NSManagedObject]()
     var exerciseArray = [NSManagedObject]()
     let DAO = CoreDataDAO()
@@ -30,11 +34,19 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         //tableView.registerClass(TodayTableViewCell.self, forCellReuseIdentifier: "Cell")
+        super.viewDidLoad()
         self.title = todayTitle()
         
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(TodayViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+        
+        trackTodayButton.layer.masksToBounds = false
+        trackTodayButton.layer.shadowColor = UIColor.darkGrayColor().CGColor
+        trackTodayButton.layer.shadowOffset = CGSize(width: 1,height: 3)
+        trackTodayButton.layer.shadowRadius = 2
+        trackTodayButton.layer.shadowOpacity = 0.6
+        trackTodayButton.layer.cornerRadius = 4
         
     }
     
@@ -82,9 +94,9 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
             case 0:
-                return "Supplements"
+                return "Supplements for today:"
             case 1:
-                return "Exercises"
+                return "Exercises for today:"
             default:
                 return "default"
         }
@@ -183,8 +195,8 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         
-        header.contentView.backgroundColor = UIColor(red: 76/255, green: 175/255, blue: 80/255, alpha: 1.0)
-        
+        header.contentView.backgroundColor = UIColor(red: 20/255, green: 126/255, blue: 240/255, alpha: 0.7)
+        header.textLabel!.textColor = UIColor.darkGrayColor()
     }
     override func awakeFromNib(){
         super.awakeFromNib()
