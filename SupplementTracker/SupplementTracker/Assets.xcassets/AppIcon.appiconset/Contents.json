@@ -3,37 +3,37 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "unnamed5-2.png",
+      "filename" : "logo120.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "unnamed3.png",
+      "filename" : "logo180.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "unnamed4.png",
+      "filename" : "logo120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "unnamed2.png",
+      "filename" : "logo180-1.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "unnamed2-1.png",
+      "filename" : "logo120-2.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "unnamed-2.png",
+      "filename" : "logo180-2.png",
       "scale" : "3x"
     }
   ],

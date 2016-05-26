@@ -19,14 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nutriments.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-re-zH1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-re-zH1">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mgC-re-zH1" secondAttribute="height" multiplier="1:1" id="eNs-iA-Sr4"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="mgC-re-zH1" secondAttribute="trailing" id="Uby-SL-mpq"/>
                             <constraint firstItem="mgC-re-zH1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="htL-4e-M4i"/>
@@ -40,7 +40,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Nutriments.png" width="400" height="400"/>
+        <image name="logo1024.png" width="1024" height="1024"/>
     </resources>
     <color key="tintColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

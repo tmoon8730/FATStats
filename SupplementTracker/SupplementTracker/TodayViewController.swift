@@ -133,7 +133,23 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("ShowNotesTrackerSegue", sender: self)
+        var deleteOrUpdateObject: NSManagedObject?
+        var entityString: String = ""
+        switch indexPath.section{
+        case 0:
+            deleteOrUpdateObject = self.supplementsArray.removeAtIndex(indexPath.row)
+            entityString = "Supplement"
+            break
+        case 1:
+            deleteOrUpdateObject = self.exerciseArray.removeAtIndex(indexPath.row)
+            entityString = "Exercise"
+            break
+        default:
+            break
+        }
+        
+        self.DAO.markCompleted(self.appDelegate.managedObjectContext, entityname: entityString, completedItem: deleteOrUpdateObject!)
+        self.loadData()
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
@@ -172,16 +188,6 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
         default:
             break
         }
-
-        let completeAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Completed", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-            // Completed stuff
-            print("In completed")
-            print("Entity: \(entityString)")
-            print("deleteOrUpdateObject: \(deleteOrUpdateObject)")
-            self.DAO.markCompleted(self.appDelegate.managedObjectContext, entityname: entityString, completedItem: deleteOrUpdateObject!)
-            self.loadData()
-        })
-        completeAction.backgroundColor = UIColor.greenColor()
         
         let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
             // Delete Stuff
@@ -190,12 +196,12 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             self.loadData()
         })
-        return [completeAction, deleteAction]
+        return [deleteAction]
     }
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
         
-        header.contentView.backgroundColor = UIColor(red: 20/255, green: 126/255, blue: 240/255, alpha: 0.7)
+        header.contentView.backgroundColor = UIColor.nutrimentsPrimaryBlue()
         header.textLabel!.textColor = UIColor.darkGrayColor()
     }
     override func awakeFromNib(){

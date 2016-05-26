@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="-2" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tkF-Xa-fbn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" sectionIndexMinimumDisplayRowCount="-2" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tkF-Xa-fbn">
                                 <rect key="frame" x="0.0" y="-1" width="600" height="552"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-nI-maM">
-                                                    <rect key="frame" x="12" y="8" width="200" height="21"/>
+                                                    <rect key="frame" x="33" y="8" width="200" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="D0V-R4-v0S"/>
                                                         <constraint firstAttribute="height" constant="21" id="Zk2-Sz-G25"/>
@@ -45,36 +45,45 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gte-Rp-B9g">
-                                                    <rect key="frame" x="8" y="30" width="584" height="11.5"/>
+                                                    <rect key="frame" x="33" y="30" width="567" height="11.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compose_Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-y8-g8C">
-                                                    <rect key="frame" x="574" y="18" width="18" height="14"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cell_Circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Lr-Hl-g9f">
+                                                    <rect key="frame" x="8" y="9.5" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="8fe-Vt-eWd"/>
+                                                        <constraint firstAttribute="height" constant="18" id="OJA-Pd-dGY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cell_Check.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1o-y8-g8C">
+                                                    <rect key="frame" x="9" y="11" width="18" height="14"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="Q1o-y8-g8C" secondAttribute="height" multiplier="26:20" id="aAr-q7-hkz"/>
+                                                        <constraint firstAttribute="width" constant="18" id="eMY-hz-4pS"/>
+                                                        <constraint firstAttribute="height" constant="14" id="ixG-QV-U7J"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="leadingMargin" secondItem="5Ne-nI-maM" secondAttribute="leading" constant="-4" id="4As-px-uGh"/>
+                                                <constraint firstItem="9Lr-Hl-g9f" firstAttribute="centerY" secondItem="5Ne-nI-maM" secondAttribute="centerY" id="1my-Yg-Pbw"/>
+                                                <constraint firstItem="5Ne-nI-maM" firstAttribute="leading" secondItem="Q1o-y8-g8C" secondAttribute="trailing" constant="6" id="DAW-44-0AR"/>
                                                 <constraint firstItem="Gte-Rp-B9g" firstAttribute="top" secondItem="5Ne-nI-maM" secondAttribute="bottom" constant="1" id="IuY-Xt-qQK"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="Gte-Rp-B9g" secondAttribute="leading" id="VyV-l8-prf"/>
+                                                <constraint firstItem="Q1o-y8-g8C" firstAttribute="leading" secondItem="108-o8-lRd" secondAttribute="leadingMargin" constant="1" id="KEm-CE-0SW"/>
+                                                <constraint firstItem="9Lr-Hl-g9f" firstAttribute="leading" secondItem="108-o8-lRd" secondAttribute="leadingMargin" id="Mpl-HD-qLV"/>
+                                                <constraint firstItem="Gte-Rp-B9g" firstAttribute="leading" secondItem="5Ne-nI-maM" secondAttribute="leading" id="ilt-Tr-BNW"/>
+                                                <constraint firstItem="Q1o-y8-g8C" firstAttribute="centerY" secondItem="5Ne-nI-maM" secondAttribute="centerY" id="lA2-p0-MIP"/>
                                                 <constraint firstAttribute="topMargin" secondItem="5Ne-nI-maM" secondAttribute="top" id="mMl-1W-3rv"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Gte-Rp-B9g" secondAttribute="bottom" id="oYA-SJ-o2I"/>
-                                                <constraint firstItem="Gte-Rp-B9g" firstAttribute="trailing" secondItem="Q1o-y8-g8C" secondAttribute="trailing" id="v3F-9h-2pr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="Q1o-y8-g8C" firstAttribute="top" secondItem="h08-JJ-lXb" secondAttribute="top" constant="18" id="2hj-Ke-srY"/>
-                                            <constraint firstAttribute="bottom" secondItem="Q1o-y8-g8C" secondAttribute="bottom" constant="18" id="ttk-a2-qkh"/>
-                                            <constraint firstAttribute="trailing" secondItem="Q1o-y8-g8C" secondAttribute="trailing" constant="8" id="yqA-qT-Zfw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gte-Rp-B9g" secondAttribute="trailing" id="vkR-i8-vs0"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="completedImage" destination="Q1o-y8-g8C" id="ZeY-76-Zua"/>
@@ -215,7 +224,7 @@
         <!--Daily Notes-->
         <scene sceneID="L7u-Db-U2p">
             <objects>
-                <navigationController id="Scy-rg-vJa" sceneMemberID="viewController">
+                <navigationController id="Scy-rg-vJa" customClass="CustomNavigationBarController" customModule="Nutriments" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Daily Notes" image="27px-supplements.png" selectedImage="27px-supplements.png" id="Ekr-GD-0Rv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kdV-T0-s7m">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -236,7 +245,7 @@
         <!--Today-->
         <scene sceneID="EnM-sA-8u0">
             <objects>
-                <navigationController id="gft-tn-O42" sceneMemberID="viewController">
+                <navigationController id="gft-tn-O42" customClass="CustomNavigationBarController" customModule="Nutriments" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Today" image="27px-supplements.png" selectedImage="27px-supplements.png" id="fbK-kA-8OA"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CsX-L1-dEH">
@@ -245,7 +254,7 @@
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.90196078431372551" green="0.24313725490196078" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -256,16 +265,16 @@
             </objects>
             <point key="canvasLocation" x="87" y="-387"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="TcC-tC-rs3">
             <objects>
-                <tabBarController id="ANs-H7-7pG" sceneMemberID="viewController">
+                <tabBarController id="ANs-H7-7pG" customClass="CustomTabBarController" customModule="Nutriments" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" selectionIndicatorImage="27px-supplements.png" id="jI7-y8-GVu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.078431372549019607" green="0.49411764705882355" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="gft-tn-O42" kind="relationship" relationship="viewControllers" id="JTX-m5-3kM"/>
@@ -281,8 +290,8 @@
         <!--SupplementPage-->
         <scene sceneID="gat-Lq-a0e">
             <objects>
-                <navigationController title="SupplementPage" id="AWm-Ma-uG8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Supplement" image="27px-supplements.png" selectedImage="27px-supplements.png" id="Q5J-ae-NjA"/>
+                <navigationController title="SupplementPage" id="AWm-Ma-uG8" customClass="CustomNavigationBarController" customModule="Nutriments" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Supplement" image="Cell_Circle.png" selectedImage="27px-supplements.png" id="Q5J-ae-NjA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e79-ZW-sYh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -316,36 +325,39 @@
                                 <rect key="frame" x="0.0" y="94" width="600" height="457"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7q-Wk-jOW">
-                                        <rect key="frame" x="190" y="141" width="219" height="36"/>
-                                        <color key="backgroundColor" red="0.69803921570000005" green="0.68627450980000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="174.5" y="120" width="250" height="36"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="bBB-MC-gfL"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="  Add New Supplement  ">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="11p-k0-CaA" kind="show" id="UEV-9o-uCJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALi-lf-3Ak">
-                                        <rect key="frame" x="190" y="208" width="219" height="36"/>
-                                        <color key="backgroundColor" red="0.69803921570000005" green="0.68627450980000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="174.5" y="276" width="250" height="36"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Edit Supplement List">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="zAE-lK-ljt"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.25882352941176467" green="0.25490196078431371" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ALi-lf-3Ak" firstAttribute="width" secondItem="l7q-Wk-jOW" secondAttribute="width" id="1F8-32-2PZ"/>
                                     <constraint firstItem="l7q-Wk-jOW" firstAttribute="centerX" secondItem="mBF-lF-14T" secondAttribute="centerX" id="4rx-9p-X5y"/>
                                     <constraint firstItem="ALi-lf-3Ak" firstAttribute="height" secondItem="l7q-Wk-jOW" secondAttribute="height" id="WXV-U3-tWp"/>
-                                    <constraint firstItem="ALi-lf-3Ak" firstAttribute="top" secondItem="l7q-Wk-jOW" secondAttribute="bottom" constant="31" id="cZU-WN-h9u"/>
+                                    <constraint firstItem="ALi-lf-3Ak" firstAttribute="top" secondItem="l7q-Wk-jOW" secondAttribute="bottom" constant="120" id="cZU-WN-h9u"/>
                                     <constraint firstItem="ALi-lf-3Ak" firstAttribute="centerX" secondItem="mBF-lF-14T" secondAttribute="centerX" id="jma-U1-iYC"/>
-                                    <constraint firstItem="l7q-Wk-jOW" firstAttribute="top" secondItem="mBF-lF-14T" secondAttribute="top" constant="141" id="xzV-0s-ANc"/>
+                                    <constraint firstItem="l7q-Wk-jOW" firstAttribute="top" secondItem="mBF-lF-14T" secondAttribute="top" constant="120" id="xzV-0s-ANc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -375,9 +387,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YjT-cT-PRs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YjT-cT-PRs">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <color key="backgroundColor" red="0.25882352941176467" green="0.25490196078431371" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="VOH-3s-R9k"/>
@@ -394,7 +406,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="27px-supplements.png" selectedImage="27px-supplements.png" id="dut-k5-KIC"/>
-                    <navigationItem key="navigationItem" title="Supplements" prompt="Nutriments" id="Wfb-un-KkG"/>
+                    <navigationItem key="navigationItem" title="Edit Supplements" id="Wfb-un-KkG"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Supplements"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityToSave" value="Supplement"/>
@@ -411,7 +423,7 @@
         <!--SupplementPage-->
         <scene sceneID="RzA-qh-e8a">
             <objects>
-                <navigationController title="SupplementPage" id="57w-Ej-SRo" sceneMemberID="viewController">
+                <navigationController title="SupplementPage" id="57w-Ej-SRo" customClass="CustomNavigationBarController" customModule="Nutriments" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Exercise" image="27px-supplements.png" selectedImage="27px-supplements.png" id="Tt8-PY-Qev"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NgG-6o-cTJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -444,7 +456,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="leY-4v-MRL">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <color key="backgroundColor" red="0.25882352941176467" green="0.25490196078431371" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Lhp-ai-akR" id="uP5-9G-0xJ"/>
                                     <outlet property="delegate" destination="Lhp-ai-akR" id="MWp-9J-1TA"/>
@@ -462,7 +474,7 @@
                     <tabBarItem key="tabBarItem" title="Item" image="27px-supplements.png" selectedImage="27px-supplements.png" id="y0F-Qy-MVK"/>
                     <navigationItem key="navigationItem" id="Gb3-NM-gFU"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Exercises"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Edit Exercises"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityToSave" value="Exercise"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -490,8 +502,11 @@
                                 <rect key="frame" x="0.0" y="94" width="600" height="457"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ac-OX-yNy">
-                                        <rect key="frame" x="201" y="141" width="198" height="36"/>
+                                        <rect key="frame" x="175" y="120" width="250" height="36"/>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="ZxR-Dp-a97"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="   Add New Exercise   ">
                                             <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -501,7 +516,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoE-N0-fvZ">
-                                        <rect key="frame" x="201" y="208" width="198" height="36"/>
+                                        <rect key="frame" x="175" y="276" width="250" height="36"/>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Edit Exercise List">
@@ -514,12 +529,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="NoE-N0-fvZ" firstAttribute="top" secondItem="5ac-OX-yNy" secondAttribute="bottom" constant="31" id="KO2-Rh-7yU"/>
+                                    <constraint firstItem="NoE-N0-fvZ" firstAttribute="top" secondItem="5ac-OX-yNy" secondAttribute="bottom" constant="120" id="KO2-Rh-7yU"/>
                                     <constraint firstItem="NoE-N0-fvZ" firstAttribute="centerX" secondItem="Ove-zT-Shy" secondAttribute="centerX" id="OSB-e7-yDF"/>
                                     <constraint firstItem="5ac-OX-yNy" firstAttribute="centerX" secondItem="Ove-zT-Shy" secondAttribute="centerX" id="R3P-cl-ApV"/>
                                     <constraint firstItem="NoE-N0-fvZ" firstAttribute="height" secondItem="5ac-OX-yNy" secondAttribute="height" id="Yuo-sz-NhE"/>
                                     <constraint firstItem="NoE-N0-fvZ" firstAttribute="trailing" secondItem="5ac-OX-yNy" secondAttribute="trailing" id="bXw-dE-cvT"/>
-                                    <constraint firstItem="5ac-OX-yNy" firstAttribute="top" secondItem="Ove-zT-Shy" secondAttribute="top" constant="141" id="ngy-HC-5vL"/>
+                                    <constraint firstItem="5ac-OX-yNy" firstAttribute="top" secondItem="Ove-zT-Shy" secondAttribute="top" constant="120" id="ngy-HC-5vL"/>
                                     <constraint firstItem="NoE-N0-fvZ" firstAttribute="width" secondItem="5ac-OX-yNy" secondAttribute="width" id="q38-Vt-Mbq"/>
                                 </constraints>
                             </view>
@@ -551,7 +566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsy-Er-lC5">
-                                <rect key="frame" x="-4" y="94" width="383" height="524"/>
+                                <rect key="frame" x="-4" y="64" width="383" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUo-Qc-LZI">
                                         <rect key="frame" x="8" y="156" width="367" height="190"/>
@@ -696,13 +711,13 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ny1-xm-uoP">
-                                        <rect key="frame" x="126" y="472" width="130" height="30"/>
-                                        <color key="backgroundColor" red="0.58431372550000005" green="0.58039215690000001" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="126" y="502" width="130" height="30"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="S2z-0n-BMJ"/>
                                         </constraints>
                                         <state key="normal" title="Save Exercise">
-                                            <color key="titleColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="saveSupplement:" destination="Yxn-1z-xxr" eventType="touchUpInside" id="hoI-KO-dYZ"/>
@@ -787,7 +802,7 @@
                             <color key="value" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityToSave" value="Exercise"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Exercise"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Add Exercises"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="fridayButton" destination="cpz-PR-xtF" id="H2q-xE-0tY"/>
@@ -902,7 +917,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKU-hy-jrI">
                                 <rect key="frame" x="0.0" y="94" width="600" height="457"/>
-                                <color key="backgroundColor" red="0.7843137255" green="0.90196078430000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -943,7 +958,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="27px-supplements.png" selectedImage="27px-supplements.png" id="HXA-RX-9al"/>
-                    <navigationItem key="navigationItem" prompt="Nutriments" id="usP-bc-fv0"/>
+                    <navigationItem key="navigationItem" title="Notes" prompt="Nutriments" id="usP-bc-fv0"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Daily Notes"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityToSave" value="DayNotes"/>
@@ -1053,13 +1068,13 @@
                                                 <attributedString key="attributedText">
                                                     <fragment content="Day: ">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.69803921568627447" green="0.68627450980392157" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="NSColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="(Tap to select which days)">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.69803921568627447" green="0.68627450980392157" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="NSColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <font key="NSFont" size="12" name="HelveticaNeue-Thin"/>
                                                         </attributes>
                                                     </fragment>
@@ -1076,7 +1091,7 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="cB7-g8-hC1" firstAttribute="height" secondItem="2r8-Bj-CK2" secondAttribute="height" id="1Zq-UV-KZo"/>
                                             <constraint firstItem="1DL-vg-C3h" firstAttribute="top" secondItem="vGY-2c-HFV" secondAttribute="bottom" constant="15" id="2cX-YS-hb9"/>
@@ -1131,7 +1146,7 @@
                                             <constraint firstAttribute="width" constant="50" id="SMg-Pn-BH0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.69803921570000005" green="0.68627450980000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bu-31-449">
@@ -1141,7 +1156,7 @@
                                             <constraint firstAttribute="width" constant="50" id="jjv-WJ-Tuq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.69803921570000005" green="0.68627450980000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Si2-u3-U7w">
@@ -1156,19 +1171,19 @@
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TX-ok-o6j">
                                         <rect key="frame" x="127" y="502" width="130" height="30"/>
-                                        <color key="backgroundColor" red="0.58431372550000005" green="0.58039215690000001" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="YTA-hP-fpn"/>
                                         </constraints>
                                         <state key="normal" title="Save Supplement">
-                                            <color key="titleColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="saveSupplement:" destination="11p-k0-CaA" eventType="touchUpInside" id="TH8-30-tB6"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qGb-iv-zJM" secondAttribute="trailing" constant="8" id="32y-tg-zyI"/>
                                     <constraint firstItem="IGu-B6-sx5" firstAttribute="top" secondItem="Hyo-p3-ojT" secondAttribute="top" constant="30" id="6un-Zx-nT5"/>
@@ -1199,13 +1214,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
-                            <color key="value" red="0.58431372550000005" green="0.58039215690000001" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="nonSelectionColor">
-                            <color key="value" red="0.69803921570000005" green="0.68627450980000004" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityToSave" value="Supplement"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Supplements"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="viewTitle" value="Add Supplements"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="fridayButton" destination="cB7-g8-hC1" id="Ulk-B1-Bh5"/>
@@ -1309,11 +1324,13 @@
     </scenes>
     <resources>
         <image name="27px-supplements.png" width="28" height="28"/>
+        <image name="Cell_Check.png" width="26" height="21"/>
+        <image name="Cell_Circle.png" width="22" height="22"/>
         <image name="Compose_Icon.png" width="22" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gbc-Sp-jr4"/>
-        <segue reference="OWV-mn-Tkt"/>
+        <segue reference="e2p-TW-xKc"/>
+        <segue reference="UEV-9o-uCJ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.80784313730000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

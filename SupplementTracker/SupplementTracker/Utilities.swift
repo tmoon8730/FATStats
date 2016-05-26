@@ -52,3 +52,16 @@ func getCurrentDay() -> String {
     default: return ""
     }
 }
+
+extension UIColor{
+    
+    static func nutrimentsPrimaryBlue() -> UIColor{
+        return UIColor(red: 30/255, green: 151/255, blue: 240/255, alpha: 1.0)
+    }
+    static func nutrimentsAccentGreen() -> UIColor{
+        return UIColor(red: 160/255, green: 212/255, blue: 104/255, alpha: 1.0)
+    }
+    static func nutrimentsAccentOrange() -> UIColor{
+        return UIColor(red: 233/255, green: 87/255, blue: 63/255, alpha: 1.0)
+    }
+}
