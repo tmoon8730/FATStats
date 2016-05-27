@@ -32,11 +32,13 @@ class CoreDataDAO {
         return managedObject // return the object if the new object needs to be used to remove it from the array in the table
     }
     // Save data to the specified entity, used for day notes data
-    internal func saveData(managedContext: NSManagedObjectContext, entityName: String, day: String, notes: String) -> NSManagedObject{
+    internal func saveData(managedContext: NSManagedObjectContext, entityName: String, day: String, notes: String, completedSupplements: String, completedExercises: String) -> NSManagedObject{
         let entity = NSEntityDescription.entityForName(entityName, inManagedObjectContext: managedContext) // A variable containing information for a specific entity
         let managedObject = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext) // A new NSManagedObject to insert into the CoreData entity
         managedObject.setValue(day,forKey:"day")
         managedObject.setValue(notes,forKey: "notes")
+        managedObject.setValue(completedExercises, forKey: "completedExercises")
+        managedObject.setValue(completedSupplements, forKey: "completedSupplements")
         do{
             try managedContext.save() // save the data to CoreData
         }catch let e as NSError{
@@ -121,6 +123,35 @@ class CoreDataDAO {
         }catch let e as NSError{
             print("Error saving data \(e), \(e.userInfo)")
         }
-
     }
+    
+    internal func completedItemsForToday(managedContext: NSManagedObjectContext, entityName: String) -> String{
+        var stringArray:[String] = [String]()
+        var returnString:String = ""
+        let fetchRequest = NSFetchRequest(entityName: entityName)
+        let predicate = NSPredicate(format:"day contains[c] %@ AND completed == true", getCurrentDay())
+        fetchRequest.predicate = predicate
+        do{
+            if let results = try managedContext.executeFetchRequest(fetchRequest) as? [Supplement]{
+                stringArray = results.map{ $0.name! }
+            }
+            if let results = try managedContext.executeFetchRequest(fetchRequest) as? [Exercise]{
+                stringArray = results.map{ $0.name! }
+            }
+            
+            returnString = stringArray.joinWithSeparator(",")
+            
+        }catch let e as NSError{
+            print("Error getting completed items \(e), \(e.userInfo)")
+        }
+        print("returnString = \(returnString)")
+        return returnString
+    }
+    
+    
+    
+    
+    
+    
+    
 }

@@ -16,9 +16,9 @@ class DayNotesViewController: EditViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerClass(DayNotesTableViewCell.self, forCellReuseIdentifier: "NoteCell")
+        //tableView.registerClass(DayNotesTableViewCell.self, forCellReuseIdentifier: "NoteCell")
         tableView.reloadData()
-        
+        self.tableView.rowHeight = 210
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(DayNotesViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
@@ -35,16 +35,31 @@ class DayNotesViewController: EditViewController{
         print("daynotesviewcontroller \(displayObjectsArray.count)")
     }
     
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return displayObjectsArray.count
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("NoteCell") as! DayNotesTableViewCell
         
         let displayObject = displayObjectsArray[indexPath.row]
         
+        let day = displayObject.valueForKey("day") as? String
+        let supplementDay = "Supplements for " + day!
+        let exerciseDay = "Exercise for " + day!
+        
         cell.backgroundColor = UIColor.clearColor()
-        cell.label.textColor = UIColor.blackColor()
-        cell.supplementItem = displayObject
-        print("\(displayObject.valueForKey("day")) \(displayObject.valueForKey("notes"))")
+        cell.dayLabel.text = displayObject.valueForKey("day") as? String
+        cell.noteLabel.text = displayObject.valueForKey("notes") as? String
+        cell.supplementLabel.text = supplementDay
+        cell.completedSupplements.text = displayObject.valueForKey("completedSupplements") as? String
+        cell.exerciseLabel.text = exerciseDay
+        cell.completedExercises.text = displayObject.valueForKey("completedExercises") as? String
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
     }
     
     func refresh(sender: AnyObject){

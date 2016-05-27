@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0230201CF8B2A70037B292 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D02301F1CF8B2A70037B292 /* TableViewCell.swift */; };
 		6D26F2671CF602CD00994344 /* Compose_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26F2661CF602CD00994344 /* Compose_Icon.png */; };
 		6D26F26A1CF6186800994344 /* Cell_Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26F2681CF6186800994344 /* Cell_Circle.png */; };
 		6D26F26B1CF6186800994344 /* Cell_Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D26F2691CF6186800994344 /* Cell_Check.png */; };
@@ -40,7 +41,6 @@
 		7D351FDF1CED5512005C69F4 /* DayNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D351FDE1CED5512005C69F4 /* DayNotesViewController.swift */; };
 		7D351FE11CED56D9005C69F4 /* DayNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D351FE01CED56D9005C69F4 /* DayNotesTableViewCell.swift */; };
 		7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */; };
-		7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72C9901CDD010500859A75 /* StrikeThroughText.swift */; };
 		7D7EC8231CF4F9A000212384 /* DayNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC81D1CF4F9A000212384 /* DayNotes+CoreDataProperties.swift */; };
 		7D7EC8241CF4F9A000212384 /* DayNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC81E1CF4F9A000212384 /* DayNotes.swift */; };
 		7D7EC8251CF4F9A000212384 /* Supplement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EC81F1CF4F9A000212384 /* Supplement+CoreDataProperties.swift */; };
@@ -53,7 +53,6 @@
 		7D9E40CC1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40CA1CDB9DD600FEE297 /* SupplementTracker.xcdatamodeld */; };
 		7D9E40CE1CDB9DD600FEE297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E40CD1CDB9DD600FEE297 /* Assets.xcassets */; };
 		7D9E40D11CDB9DD600FEE297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9E40CF1CDB9DD600FEE297 /* LaunchScreen.storyboard */; };
-		7D9E40D91CDBB8A500FEE297 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9E40D81CDBB8A500FEE297 /* TableViewCell.swift */; };
 		7DBFA0BE1CE75FE90080EE88 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA0BD1CE75FE90080EE88 /* AddViewController.swift */; };
 		7DBFA0C01CE813C70080EE88 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA0BF1CE813C70080EE88 /* EditViewController.swift */; };
 		7DBFA0C21CE81A820080EE88 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBFA0C11CE81A820080EE88 /* Utilities.swift */; };
@@ -61,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D02301F1CF8B2A70037B292 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		6D26F2661CF602CD00994344 /* Compose_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Compose_Icon.png; path = images/Compose_Icon.png; sourceTree = "<group>"; };
 		6D26F2681CF6186800994344 /* Cell_Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cell_Circle.png; path = images/Cell_Circle.png; sourceTree = "<group>"; };
 		6D26F2691CF6186800994344 /* Cell_Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cell_Check.png; path = images/Cell_Check.png; sourceTree = "<group>"; };
@@ -94,7 +94,6 @@
 		7D351FDE1CED5512005C69F4 /* DayNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesViewController.swift; sourceTree = "<group>"; };
 		7D351FE01CED56D9005C69F4 /* DayNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotesTableViewCell.swift; sourceTree = "<group>"; };
 		7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
-		7D72C9901CDD010500859A75 /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		7D7EC81D1CF4F9A000212384 /* DayNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DayNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7D7EC81E1CF4F9A000212384 /* DayNotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNotes.swift; sourceTree = "<group>"; };
 		7D7EC81F1CF4F9A000212384 /* Supplement+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Supplement+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -109,7 +108,6 @@
 		7D9E40CD1CDB9DD600FEE297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D9E40D01CDB9DD600FEE297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D9E40D21CDB9DD600FEE297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7D9E40D81CDBB8A500FEE297 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7DBFA0BD1CE75FE90080EE88 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		7DBFA0BF1CE813C70080EE88 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		7DBFA0C11CE81A820080EE88 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -182,10 +180,9 @@
 		7D9E40C21CDB9DD600FEE297 /* Nutriments */ = {
 			isa = PBXGroup;
 			children = (
+				6D02301F1CF8B2A70037B292 /* TableViewCell.swift */,
 				7D9E40C31CDB9DD600FEE297 /* AppDelegate.swift */,
 				7D6AE0AE1CDFEFB300744AB6 /* CoreDataDAO.swift */,
-				7D9E40D81CDBB8A500FEE297 /* TableViewCell.swift */,
-				7D72C9901CDD010500859A75 /* StrikeThroughText.swift */,
 				7D9E40C71CDB9DD600FEE297 /* Main.storyboard */,
 				6D26F2801CF68A9600994344 /* CustomTabBarController.swift */,
 				6D26F2681CF6186800994344 /* Cell_Circle.png */,
@@ -312,7 +309,6 @@
 				7D7EC8241CF4F9A000212384 /* DayNotes.swift in Sources */,
 				7D89D58A1CF3E63A007646D0 /* DayNotesAddController.swift in Sources */,
 				7DBFA0C41CE95C280080EE88 /* TodayTableViewCell.swift in Sources */,
-				7D72C9911CDD010500859A75 /* StrikeThroughText.swift in Sources */,
 				7DBFA0BE1CE75FE90080EE88 /* AddViewController.swift in Sources */,
 				7D7EC8281CF4F9A000212384 /* Exercise.swift in Sources */,
 				7DBFA0C01CE813C70080EE88 /* EditViewController.swift in Sources */,
@@ -324,9 +320,9 @@
 				7D03A7121CE3DDDE00241873 /* NotesTrackerViewController.swift in Sources */,
 				7D6AE0AF1CDFEFB300744AB6 /* CoreDataDAO.swift in Sources */,
 				7D351FE11CED56D9005C69F4 /* DayNotesTableViewCell.swift in Sources */,
-				7D9E40D91CDBB8A500FEE297 /* TableViewCell.swift in Sources */,
 				7D9E40C41CDB9DD600FEE297 /* AppDelegate.swift in Sources */,
 				7D7EC8261CF4F9A000212384 /* Supplement.swift in Sources */,
+				6D0230201CF8B2A70037B292 /* TableViewCell.swift in Sources */,
 				7DBFA0C21CE81A820080EE88 /* Utilities.swift in Sources */,
 				7D7EC8271CF4F9A000212384 /* Exercise+CoreDataProperties.swift in Sources */,
 				7D30FED41CE23EDE00FEC4B4 /* TodayViewController.swift in Sources */,

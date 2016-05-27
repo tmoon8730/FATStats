@@ -195,6 +195,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4Qk-9g-UB2" id="K2y-76-TQx"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -582,7 +585,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Monday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPM-fF-TMn">
@@ -592,7 +595,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Tuesday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fY-SS-YhW">
@@ -602,7 +605,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Saturday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11l-NK-Lqg">
@@ -612,7 +615,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Sunday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpz-PR-xtF">
@@ -622,7 +625,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Friday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EV-AI-yJC">
@@ -632,7 +635,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Wednesday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVL-GK-hFa">
@@ -642,7 +645,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Thursday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc3-gO-Hne">
@@ -669,7 +672,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select All">
-                                                    <color key="titleColor" red="0.25882352941176467" green="0.25490196078431371" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -915,30 +918,159 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKU-hy-jrI">
-                                <rect key="frame" x="0.0" y="94" width="600" height="457"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFn-JP-jBN" userLabel="ButtonView">
+                                <rect key="frame" x="0.0" y="94" width="600" height="65"/>
+                                <subviews>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPD-qk-bxH">
+                                        <rect key="frame" x="228" y="18" width="145" height="29"/>
+                                        <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FPD-qk-bxH" secondAttribute="height" multiplier="5:1" id="01m-zI-VJF"/>
+                                            <constraint firstAttribute="height" constant="28.5" id="MWn-40-TeB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                        <state key="normal" title="Track Today">
+                                            <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="4Qk-9g-UB2" kind="show" id="Qob-ha-drz"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compose_Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="VT9-Q4-Aoo">
+                                        <rect key="frame" x="348" y="21" width="19" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="19" id="Sjg-gg-DK5"/>
+                                            <constraint firstAttribute="height" constant="23" id="gFx-7h-Imn"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="FPD-qk-bxH" firstAttribute="centerX" secondItem="PFn-JP-jBN" secondAttribute="centerX" id="Kyb-XN-nrd"/>
+                                    <constraint firstItem="FPD-qk-bxH" firstAttribute="centerY" secondItem="PFn-JP-jBN" secondAttribute="centerY" id="a56-NJ-7L9"/>
+                                    <constraint firstItem="VT9-Q4-Aoo" firstAttribute="centerY" secondItem="FPD-qk-bxH" secondAttribute="centerY" id="aVB-le-9Xs"/>
+                                    <constraint firstItem="VT9-Q4-Aoo" firstAttribute="leading" secondItem="FPD-qk-bxH" secondAttribute="trailing" constant="-25" id="nLa-bQ-OkC"/>
+                                    <constraint firstAttribute="height" constant="65" id="xC0-GO-wJs"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFj-hk-wjo" userLabel="BorderView">
+                                <rect key="frame" x="0.0" y="159" width="600" height="25"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Previous notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUW-14-Jk0">
+                                        <rect key="frame" x="0.0" y="-159" width="111" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="KcC-Wd-L3Y"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="210" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RKU-hy-jrI">
+                                <rect key="frame" x="0.0" y="184" width="600" height="367"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="NoteCell" rowHeight="50" id="yQP-n4-tPq" customClass="DayNotesTableViewCell" customModule="Nutriments" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="NoteCell" rowHeight="210" id="yQP-n4-tPq" customClass="DayNotesTableViewCell" customModule="Nutriments" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yQP-n4-tPq" id="Sow-YI-edq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="209.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaA-Cg-jJy" customClass="StrikeThroughText" customModule="Nutriments" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, May 23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaA-Cg-jJy">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="fMG-WE-9WL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Felt great all day, no headache, HR = 75, morning teperature = 98.0" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6i-UK-8L8">
+                                                    <rect key="frame" x="3" y="24" width="589" height="45"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="VfZ-xv-vt5"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supplements for May 23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpN-Vl-QWA">
+                                                    <rect key="frame" x="8" y="69" width="584" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0e4-4J-wFd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="DIM 500 mg, Vitamin C 1.5g" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpC-Bv-uJS">
+                                                    <rect key="frame" x="3" y="85" width="589" height="45"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="VZ1-XK-tfN"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises for May 23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWm-i2-yTt">
+                                                    <rect key="frame" x="8" y="130" width="584" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="w59-ET-5CE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Push Ups, Walk" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gp-0y-xK0">
+                                                    <rect key="frame" x="3" y="146" width="589" height="45"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="hY2-SN-WQg"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.48627450979999998" green="0.4823529412" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LpC-Bv-uJS" firstAttribute="top" secondItem="NpN-Vl-QWA" secondAttribute="bottom" constant="-5" id="0lC-ic-xzR"/>
+                                                <constraint firstItem="EaA-Cg-jJy" firstAttribute="top" secondItem="Sow-YI-edq" secondAttribute="topMargin" id="3Nc-KW-G0H"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8gp-0y-xK0" secondAttribute="trailing" id="7T0-VX-8tX"/>
+                                                <constraint firstItem="g6i-UK-8L8" firstAttribute="leading" secondItem="Sow-YI-edq" secondAttribute="leadingMargin" constant="-5" id="9Vz-hw-KVu"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="eWm-i2-yTt" secondAttribute="leading" id="ATo-NV-uVq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LpC-Bv-uJS" secondAttribute="trailing" id="INU-Ka-0mM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EaA-Cg-jJy" secondAttribute="trailing" id="NlE-8n-c8F"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="NpN-Vl-QWA" secondAttribute="trailing" id="QEo-Il-0pX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="g6i-UK-8L8" secondAttribute="trailing" id="YR6-zl-iLk"/>
+                                                <constraint firstItem="NpN-Vl-QWA" firstAttribute="top" secondItem="g6i-UK-8L8" secondAttribute="bottom" id="YkD-Jr-N0g"/>
+                                                <constraint firstItem="eWm-i2-yTt" firstAttribute="top" secondItem="LpC-Bv-uJS" secondAttribute="bottom" id="aSF-F7-rag"/>
+                                                <constraint firstItem="8gp-0y-xK0" firstAttribute="leading" secondItem="Sow-YI-edq" secondAttribute="leadingMargin" constant="-5" id="c8e-DG-2Lh"/>
+                                                <constraint firstItem="LpC-Bv-uJS" firstAttribute="leading" secondItem="Sow-YI-edq" secondAttribute="leadingMargin" constant="-5" id="eIG-JZ-hEx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eWm-i2-yTt" secondAttribute="trailing" id="jTb-KG-1yC"/>
+                                                <constraint firstItem="8gp-0y-xK0" firstAttribute="top" secondItem="eWm-i2-yTt" secondAttribute="bottom" constant="-5" id="npk-qd-X32"/>
+                                                <constraint firstItem="g6i-UK-8L8" firstAttribute="top" secondItem="EaA-Cg-jJy" secondAttribute="bottom" constant="-5" id="pNg-AE-0fA"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="NpN-Vl-QWA" secondAttribute="leading" id="sek-pK-Twe"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="EaA-Cg-jJy" secondAttribute="leading" id="xIn-U7-9bQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="label" destination="EaA-Cg-jJy" id="E24-Vi-fxr"/>
+                                            <outlet property="completedExercises" destination="8gp-0y-xK0" id="3QP-cY-L3d"/>
+                                            <outlet property="completedSupplements" destination="LpC-Bv-uJS" id="ebJ-jw-3gq"/>
+                                            <outlet property="dayLabel" destination="EaA-Cg-jJy" id="Yfj-7z-ajw"/>
+                                            <outlet property="exerciseLabel" destination="eWm-i2-yTt" id="RfJ-ko-TGq"/>
+                                            <outlet property="noteLabel" destination="g6i-UK-8L8" id="ign-bM-xBg"/>
+                                            <outlet property="supplementLabel" destination="NpN-Vl-QWA" id="8Yb-Bw-081"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -951,10 +1083,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RKU-hy-jrI" firstAttribute="top" secondItem="R4v-4p-6A0" secondAttribute="bottom" id="BdQ-XM-cb3"/>
-                            <constraint firstItem="scQ-GG-JWI" firstAttribute="top" secondItem="RKU-hy-jrI" secondAttribute="bottom" id="KcT-yr-4lO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RKU-hy-jrI" secondAttribute="trailing" constant="-20" id="iH7-aa-FyW"/>
-                            <constraint firstItem="RKU-hy-jrI" firstAttribute="leading" secondItem="U0v-fb-JAV" secondAttribute="leadingMargin" constant="-20" id="nhQ-wb-340"/>
+                            <constraint firstItem="PFn-JP-jBN" firstAttribute="top" secondItem="R4v-4p-6A0" secondAttribute="bottom" id="EHw-0M-h5K"/>
+                            <constraint firstItem="scQ-GG-JWI" firstAttribute="top" secondItem="RKU-hy-jrI" secondAttribute="bottom" id="Lf8-tI-8AT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HFj-hk-wjo" secondAttribute="trailing" constant="-20" id="dRD-mO-w4N"/>
+                            <constraint firstItem="RKU-hy-jrI" firstAttribute="leading" secondItem="U0v-fb-JAV" secondAttribute="leadingMargin" constant="-20" id="efl-7N-CMX"/>
+                            <constraint firstItem="PFn-JP-jBN" firstAttribute="leading" secondItem="U0v-fb-JAV" secondAttribute="leadingMargin" constant="-20" id="hX1-7Z-DUQ"/>
+                            <constraint firstItem="RKU-hy-jrI" firstAttribute="top" secondItem="HFj-hk-wjo" secondAttribute="bottom" id="mcg-c1-kS9"/>
+                            <constraint firstItem="HFj-hk-wjo" firstAttribute="top" secondItem="PFn-JP-jBN" secondAttribute="bottom" id="qA0-4l-uEf"/>
+                            <constraint firstItem="HFj-hk-wjo" firstAttribute="leading" secondItem="U0v-fb-JAV" secondAttribute="leadingMargin" constant="-20" id="ryz-jN-Qxt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RKU-hy-jrI" secondAttribute="trailing" constant="-20" id="ufK-g8-gQF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PFn-JP-jBN" secondAttribute="trailing" constant="-20" id="xmd-5E-moN"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="27px-supplements.png" selectedImage="27px-supplements.png" id="HXA-RX-9al"/>
@@ -983,7 +1121,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyo-p3-ojT">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hyo-p3-ojT">
                                 <rect key="frame" x="-4" y="64" width="383" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGb-iv-zJM">
@@ -1000,7 +1138,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Monday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGY-2c-HFV">
@@ -1010,7 +1148,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Tuesday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjb-Ip-fPF">
@@ -1020,7 +1158,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Saturday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USG-ve-TPn">
@@ -1030,7 +1168,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Sunday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB7-g8-hC1">
@@ -1040,7 +1178,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Friday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2r8-Bj-CK2">
@@ -1050,7 +1188,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Wednesday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DL-vg-C3h">
@@ -1060,7 +1198,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Thursday">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rb-XF-Emo">
@@ -1087,7 +1225,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select All">
-                                                    <color key="titleColor" red="0.25882352939999997" green="0.25490196079999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.46666666670000001" green="0.73333333329999995" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -1169,7 +1307,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TX-ok-o6j">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TX-ok-o6j">
                                         <rect key="frame" x="127" y="502" width="130" height="30"/>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.4941176471" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1329,6 +1467,7 @@
         <image name="Compose_Icon.png" width="22" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Qob-ha-drz"/>
         <segue reference="e2p-TW-xKc"/>
         <segue reference="UEV-9o-uCJ"/>
     </inferredMetricsTieBreakers>

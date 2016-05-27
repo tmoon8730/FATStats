@@ -24,13 +24,13 @@ class TodayViewController:UIViewController, UITableViewDataSource, UITableViewDe
     let DAO = CoreDataDAO()
     lazy var refreshControl: UIRefreshControl = UIRefreshControl()
     
-    @IBAction func saveDayNote(sender: AnyObject) {
+  /*  @IBAction func saveDayNote(sender: AnyObject) {
         let managedContext = appDelegate.managedObjectContext
         DAO.saveData(managedContext, entityName: "DayNotes", day: getCurrentDay(), notes: notesTextView.text!)
         print("Saved Note \(notesTextView.text!)")
         notesTextView.text = ""
         dismissKeyboard()
-    }
+    }*/
     
     override func viewDidLoad() {
         //tableView.registerClass(TodayTableViewCell.self, forCellReuseIdentifier: "Cell")
