@@ -174,9 +174,24 @@ class AddViewController: UIViewController, UITextFieldDelegate, UITextViewDelega
             if(saturdayButton.selected == true){addDay = addDay + "Sat"}
             if(sundayButton.selected == true){addDay = addDay + "Sun"}
         }
-        DAO.saveData(managedContext, entityName: entityToSave, name: addName, day: addDay, notes: addNotes, completed: addCompleted) // Save a new entry into the CoreData database
-        print("Saved the data")
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        
+        
+        if(!(mondayButton.selected || tuesdayButton.selected || wednesdayButton.selected || thursdayButton.selected || fridayButton.selected || saturdayButton.selected || sundayButton.selected)){
+            // No buttons selected
+            print("No buttons selected!")
+            
+            let alertController = UIAlertController(title: "Error", message: "No day button selected\nPlease selected a button for which day of the week \(viewTitle) should be taken", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        } else{
+        
+            DAO.saveData(managedContext, entityName: entityToSave, name: addName, day: addDay, notes: addNotes, completed: addCompleted) // Save a new entry into the CoreData database
+            print("Saved the data")
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
     }
     
     override func awakeFromNib(){

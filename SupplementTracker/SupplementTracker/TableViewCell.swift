@@ -25,11 +25,13 @@ class TableViewCell: UITableViewCell {
             let n = supplementItem!.valueForKey("name") as! String
             let d = supplementItem!.valueForKey("day") as! String
             let labelText:String = ("\(n) , \(d)")
+            print(d)
             label.text = labelText
+            label.textColor = UIColor.blueColor()
             itemCompleteLayer.hidden = true
         }
     }
-    let label: UILabel = UILabel()
+    var label: UILabel = UILabel()
     var itemCompleteLayer = CALayer()
     
 
@@ -40,6 +42,9 @@ class TableViewCell: UITableViewCell {
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        print("In init")
+        label = UILabel.init()
+        print("init text \(label.text)")
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
     }

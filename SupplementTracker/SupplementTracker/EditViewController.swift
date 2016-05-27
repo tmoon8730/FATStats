@@ -27,7 +27,6 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         title = self.viewTitle
-        tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "Cell")
        // tableView.separatorStyle = .None
         tableView.rowHeight = 50.0
     }
@@ -47,14 +46,23 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return displayObjectsArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("EditCell", forIndexPath: indexPath) as! EditTableViewCell
         
         let displayObject = displayObjectsArray[indexPath.row]
         
-        cell?.backgroundColor = colorForIndex(indexPath.row) // Sets the color and makes a gradient based on the number of rows
-        cell?.selectionStyle = .None
-        cell.supplementItem = displayObject // Sets the data to display
-        return cell!
+        cell.backgroundColor = UIColor.clearColor()
+        cell.selectionStyle = .None
+        var name: String = ""
+        if let n = displayObject.valueForKey("name") as? String{
+            name = n
+        }
+        var day: String = ""
+        if let d = displayObject.valueForKey("day") as? String{
+            day = d
+        }
+        cell.editLabel.text = ("\(name): \(day)")
+        
+        return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         // When the user taps on a cell a segue happens to the AddViewController

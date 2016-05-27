@@ -11,6 +11,6 @@ import UIKit
 class CustomNavigationBarController: UINavigationController{
     override func viewDidLoad() {
         self.navigationBar.barTintColor = UIColor.nutrimentsPrimaryBlue()
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.nutrimentsAccentGreen()]
+        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
 }

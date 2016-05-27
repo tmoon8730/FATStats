@@ -33,7 +33,7 @@ func todayTitle() -> String{
     let dateFormatter = NSDateFormatter()
     dateFormatter.locale = NSLocale.currentLocale()
     dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-    dateFormatter.dateFormat = "EEE, MMM dd"
+    dateFormatter.dateFormat = "EEEE, MMM dd"
     let convertedDate = dateFormatter.stringFromDate(currentDate)
     return convertedDate;
 }
