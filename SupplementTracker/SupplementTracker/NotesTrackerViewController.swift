@@ -11,6 +11,7 @@ import CoreData
 import Foundation
 
 class NotesTrackerViewController: UICollectionViewController{
+    // Lots to do here
     override func viewDidLoad(){
         
     }
