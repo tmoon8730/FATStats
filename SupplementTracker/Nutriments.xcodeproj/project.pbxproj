@@ -392,6 +392,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -429,6 +430,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -441,9 +443,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SupplementTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigtea.Nutriments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nutrimentsapp.nutriments;
 				PRODUCT_NAME = Nutriments;
 				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -451,13 +454,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tyler Moon (36RN97RC8Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tyler Moon (36RN97RC8Z)";
 				INFOPLIST_FILE = SupplementTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigtea.Nutriments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nutrimentsapp.nutriments;
 				PRODUCT_NAME = Nutriments;
 				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
 			};
 			name = Release;
 		};
